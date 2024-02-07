@@ -18,6 +18,7 @@ class Logs {
         return logEntry; 
     }
     static async findAvg(user_id) {
+        console.log(user_id, "hello????????")
         const query = `SELECT AVG(mood), AVG(abd_pain), AVG(back_pain), AVG(nausea), AVG(fatigue) FROM logs WHERE user_id = ?`;
         const args = [user_id];
         const { rows } = await knex.raw(query, args);

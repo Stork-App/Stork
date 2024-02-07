@@ -11,7 +11,8 @@ Router.use(addModelsToRequest);
 
 Router.get('/logs', logController.list);
 Router.post('/logs', logController.create);
-Router.patch('/logs/:id',logController.update)
+Router.patch('/logs/:id',logController.update);
+Router.get('/users/:id/avg', logController.average);
 
 Router.get('/users', userController.list);
 Router.post('/users', userController.create);

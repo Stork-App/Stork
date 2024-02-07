@@ -1,11 +1,10 @@
 const average = async (req, res) => {
     const {
      db: { Logs }, 
-       body: {user_id}, 
+       body: { id }, 
     } = req;
 
-    const logAvg = await Logs.findAvg(user_id);
-      res.json(logAvg);
-    
+    const logAvg = await Logs.findAvg(id);
+      res.json(logAvg);  
 };
 module.exports = average

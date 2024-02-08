@@ -5,7 +5,7 @@ const postController = require('./controllers/posts/index');
 const threadController = require('./controllers/threads/index');
 const addModelsToRequest = require('./middleware/add-models-to-request');
 const checkAuthentication = require('./middleware/check-authentication');
-const { router } = require('./server');
+
 
 const Router = express.Router();
 Router.use(addModelsToRequest);
@@ -20,7 +20,7 @@ Router.patch('/posts/:id',postController.update)
 
 Router.get('/posts/:id', postController.show);
 
-Router.get('/logs', logController.list);
+Router.get('/logs/:id', logController.list);
 Router.post('/logs', logController.create);
 Router.patch('/logs/:id',logController.update)
 

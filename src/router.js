@@ -3,13 +3,13 @@ const userController = require('./controllers/user/index'); // the "/index" part
 const logController = require('./controllers/logs/index')
 const addModelsToRequest = require('./middleware/add-models-to-request');
 const checkAuthentication = require('./middleware/check-authentication');
-const { router } = require('./server');
+
 
 const Router = express.Router();
 Router.use(addModelsToRequest);
 
 
-Router.get('/logs', logController.list);
+Router.get('/logs/:id', logController.list);
 Router.post('/logs', logController.create);
 Router.patch('/logs/:id',logController.update)
 

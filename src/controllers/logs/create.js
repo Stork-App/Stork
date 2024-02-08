@@ -1,7 +1,7 @@
 const createLog = async (req, res) => {
     const { 
       db: { Logs }, 
-      body: { mood, abd_pain, back_pain, nausea, fatigue, user_id }, 
+      body: { mood, abd_pain, back_pain, nausea, fatigue, user_id}, 
     } = req;
   
   

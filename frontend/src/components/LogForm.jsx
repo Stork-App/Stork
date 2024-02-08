@@ -45,7 +45,7 @@ const setRangeValues = (sliderInput) => {
     obj.fatigue = setRangeValues(obj.fatigue)
     obj.user_id = Number(obj.user_id)
     console.log(obj)
-    // await createLog(obj)
+    await createLog(obj)
     
     event.target.reset();
   };

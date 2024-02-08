@@ -10,7 +10,7 @@ Router.use(addModelsToRequest);
 
 
 Router.get('/logs/all', logController.list);
-Router.get('logs/user/:id', logController.logsbyuser);
+Router.get('/logs/users/:id', logController.logsbyuser);
 Router.post('/logs', logController.create);
 Router.patch('/logs/:id',logController.update);
 Router.get('/logs/avg/user/:id', logController.average);

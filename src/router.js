@@ -13,7 +13,7 @@ Router.get('/logs/all', logController.list);
 Router.get('/logs/users/:id', logController.logsbyuser);
 Router.post('/logs', logController.create);
 Router.patch('/logs/:id',logController.update);
-Router.get('/logs/avg/user/:user_id', logController.average);
+Router.get('/logs/avg/user/:id', logController.average);
 
 Router.get('/users', userController.list);
 Router.post('/users', userController.create);

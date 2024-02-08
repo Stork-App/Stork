@@ -53,6 +53,8 @@ export default function UserPage() {
       !!isCurrentUserProfile
         && <UpdateUsernameForm currentUser={currentUser} setCurrentUser={setCurrentUser}/>
     }
+
+    <LogForm currentUser = {currentUser} />
     <table>
       <thead>
         <tr>

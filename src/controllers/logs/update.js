@@ -1,12 +1,12 @@
 const update = async (req, res) => {
   const {
       db: { Logs },
-      params: { id: logId },
-      body: {user_id, mood, abd_pain, back_pain, nausea, fatigue},
+      params: { id },
+      body: {mood, abd_pain, back_pain, nausea, fatigue},
   } = req;
-console.log(logId, user_id)
+
   try {
-      const updatedLog = await Logs.update(logId, user_id, mood, abd_pain, back_pain, nausea, fatigue);
+      const updatedLog = await Logs.update(mood, abd_pain, back_pain, nausea, fatigue, id);
       if (updatedLog) {
         res.json(updatedLog);
         console.log('successfull')

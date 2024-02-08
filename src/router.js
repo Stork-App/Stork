@@ -9,10 +9,11 @@ const Router = express.Router();
 Router.use(addModelsToRequest);
 
 
-Router.get('/logs', logController.list);
+Router.get('/logs/all', logController.list);
+Router.get('logs/user/:id', logController.logsbyuser);
 Router.post('/logs', logController.create);
 Router.patch('/logs/:id',logController.update);
-Router.get('/logs/user/:id', logController.average);
+Router.get('/logs/avg/user/:id', logController.average);
 
 Router.get('/users', userController.list);
 Router.post('/users', userController.create);

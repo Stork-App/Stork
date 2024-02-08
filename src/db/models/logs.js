@@ -2,14 +2,19 @@ const knex = require('../knex');
 
 
 class Logs {
-
     static async list() {
         const query = 'SELECT * FROM logs';
         const { rows } = await knex.raw(query);
         console.log(rows)
         return rows
     }
-  
+    static async logsByUser(user_id){
+      const query = `SELECT * FROM logs WHERE user_id = ?`
+      const args = [user_id]
+      const { rows } = await knex.raw(query, args);
+
+      return rows;
+    }
     static async create(mood, abd_pain, back_pain, nausea, fatigue, user_id) {
         const query = `INSERT INTO logs (mood, abd_pain, back_pain, nausea, fatigue, user_id)
           VALUES (?, ?, ?, ?, ?, ?) RETURNING *`;
@@ -24,21 +29,16 @@ class Logs {
         const { rows } = await knex.raw(query, args);
 
         return rows;
-    }
-
-  
-  static async update(logId, user_id, mood, abd_pain, back_pain, nausea, fatigue,) {
-    const query = "UPDATE logs SET mood = ?, abd_pain = ?, back_pain = ?, nausea = ?, fatigue = ? WHERE id = ? AND user_id = ? RETURNING *;";
-    const args = [mood, abd_pain, back_pain, nausea, fatigue, logId, user_id];
-       const { rows } = await knex.raw(query, args);
-       const log = rows[0];
-       return log ? new Logs(log): null
-    }
-  
-  
+      }
+    static async update(logId, user_id, mood, abd_pain, back_pain, nausea, fatigue,) {
+      const query = "UPDATE logs SET mood = ?, abd_pain = ?, back_pain = ?, nausea = ?, fatigue = ? WHERE id = ? AND user_id = ? RETURNING *;";
+      const args = [mood, abd_pain, back_pain, nausea, fatigue, logId, user_id];
+        const { rows } = await knex.raw(query, args);
+        const log = rows[0];
+        return log ? new Logs(log): null
+      }
 }
 
 
 module.exports = Logs;
 
-0

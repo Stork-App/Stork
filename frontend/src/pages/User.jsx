@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useAsyncError, useNavigate, useParams } from "react-router-dom";
 import CurrentUserContext from "../contexts/current-user-context";
 import { getUser } from "../adapters/user-adapter";
 import { getAvgLogs } from "../adapters/log-adapter";
@@ -15,6 +15,7 @@ export default function UserPage() {
   const [userProfile, setUserProfile] = useState(null);
   const [errorText, setErrorText] = useState(null);
   const [userLogs, setUsersLogs] = useState([])
+  const [userAvgs, setUserAverages] = useState([]);
   const { id } = useParams();
   const isCurrentUserProfile = currentUser && currentUser.id === Number(id);
 
@@ -22,7 +23,9 @@ export default function UserPage() {
     const loadUser = async () => {
       const [user, error] = await getUser(id);
       const [logs] = await getLogs(id);
+      const [avgs] = await getAvgLogs(id);
       setUsersLogs(logs)
+      setUserAverages(avgs)
       if (error) return setErrorText(error.message);
       setUserProfile(user);
     };
@@ -30,6 +33,7 @@ export default function UserPage() {
     loadUser();
   }, [id]);
 
+  console.log('UserAverages', userAvgs.mood)
   const handleLogout = async () => {
     logUserOut();
     setCurrentUser(null);
@@ -45,20 +49,31 @@ export default function UserPage() {
   const profileUsername = isCurrentUserProfile ? currentUser.username : userProfile.username;
 
   
-  getAvgLogs(currentUser.id);
 
   return <>
     <h1>{profileUsername}</h1>
     { !!isCurrentUserProfile && <button onClick={handleLogout}>Log Out</button> }
     <p>If the user had any data, here it would be</p>
     <p>Fake Bio or something</p>
-    <p>Hello!</p>
+
+    {/* user averages functionality */}
+    <h1>Your Symptom Stats!</h1>
+    <h3>Mood: {userAvgs.mood}</h3>
+    <h3>Abdominal Pain: {userAvgs.abd_pain}</h3>
+    <h3>Back Pain: {userAvgs.back_pain}</h3>
+    <h3>Nausea: {userAvgs.nausea}</h3>
+    <h3>Fatigue: {userAvgs.fatigue}</h3>
+    {/* user averages functionality */}
+
+
     {
       !!isCurrentUserProfile
         && <UpdateUsernameForm currentUser={currentUser} setCurrentUser={setCurrentUser}/>
     }
 
     <LogForm currentUser = {currentUser} />
+   
+   {/* user table functionality */}
     <table>
       <thead>
         <tr>

@@ -20,10 +20,11 @@ class Logs {
         return logEntry; 
     }
     static async findAvg(user_id) {
-        const query = `SELECT AVG(mood), AVG(abd_pain), AVG(back_pain), AVG(nausea), AVG(fatigue) FROM logs WHERE user_id = ?`;
+        const query = `SELECT ROUND(AVG(mood), 2) AS mood, ROUND(AVG(abd_pain), 2) AS abd_pain, ROUND(AVG(back_pain), 2) AS back_pain, ROUND(AVG(nausea), 2) AS nausea, ROUND(AVG(fatigue), 2) AS fatigue FROM logs WHERE user_id = ?`;
         const args = [user_id];
         const { rows } = await knex.raw(query, args);
-        return rows[0];
+
+        return rows;
     }
 
   

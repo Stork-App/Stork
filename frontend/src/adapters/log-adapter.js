@@ -12,8 +12,14 @@ export const getAllLogs = async () => {
   return logs || [];
 };
 
-export const getLogs = async (id) => fetchHandler(`${baseUrl}/${id}`);
+export const getLogs = async (id) => await fetchHandler(`${baseUrl}/${id}`);
 
+export const getAvgLogs = async(id) => {
+  const [avgs] = await fetchHandler(`${baseUrl}/avg/user/${id}`);
+  console.log('hello')
+  console.log(avgs)
+  return avgs || [];
+}
 // export const updateUsername = async ({ id, username }) => (
 //   fetchHandler(`${baseUrl}/${id}`, getPatchOptions({ id, username }))
 // );

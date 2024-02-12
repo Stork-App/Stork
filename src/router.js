@@ -13,6 +13,7 @@ Router.use(addModelsToRequest);
 Router.get('/threads', threadController.list);
 Router.post('/threads', threadController.create);
 Router.get('/threads/:id', threadController.show);
+Router.patch('/threads/:id',threadController.update);
 
 Router.get('/posts', postController.list);
 Router.post('/posts', postController.create);

@@ -24,13 +24,13 @@ class Thread {
     return thread || []
   }
 
-//   static async update(title, id) {
-//     const query = "UPDATE posts SET title = ? WHERE id = ? RETURNING *";
-//     const args = [title, id];
-//     console.log(args)
-//     const { rows } = await knex.raw(query, args);
-//     return rows;
-//     }
+  static async update(comment, id) {
+    const query = "UPDATE threads SET comment = ? WHERE id = ? RETURNING *";
+    const args = [comment, id];
+    console.log(args)
+    const { rows } = await knex.raw(query, args);
+    return rows;
+    }
 }
 
 module.exports = Thread;

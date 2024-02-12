@@ -1,12 +1,12 @@
-// const updateThread = async (req, res) => {
-//     const {
-//       db: { Post },
-//       params: { id },
-//       body: { title },
-//     } = req;
+const updateThread = async (req, res) => {
+    const {
+      db: { Thread },
+      params: { id },
+      body: { comment },
+    } = req;
   
-//     const updatedPost = await Post.update(title, id);
-//     res.json(updatedPost);
-//   };
-//   module.exports = updateThread;
+    const updateThread = await Thread.update(comment, id);
+    res.json(updateThread);
+  };
+  module.exports = updateThread;
   

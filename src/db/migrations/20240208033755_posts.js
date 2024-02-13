@@ -7,6 +7,7 @@ exports.up = (knex) => knex.schema.createTable('posts', (table) => {
     table.integer('user_id');
     table.foreign('user_id').references('id').inTable('users');
     table.string('title').notNullable();
+    table.string('description').notNullable();
     table.timestamps(true,true);
 });
 

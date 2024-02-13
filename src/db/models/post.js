@@ -7,10 +7,10 @@ class Post {
     return rows;
   }
 
-  static async create(user_id, title) {
-    const query = `INSERT INTO posts (user_id, title)
-          VALUES (?, ?) RETURNING *`;
-    const args = [user_id, title];
+  static async create(user_id, title, description) {
+    const query = `INSERT INTO posts (user_id, title, description)
+          VALUES (?, ?, ?) RETURNING *`;
+    const args = [user_id, title, description];
     const { rows } = await knex.raw(query, args);
     const postEntry = rows[0];
     return postEntry;
@@ -21,16 +21,17 @@ class Post {
     const args = [id];
     const { rows } = await knex.raw(query, args);
     const post = rows[0];
-    return post || []
+    return post || [];
   }
 
-  static async update(title, id) {
-    const query = "UPDATE posts SET title = ? WHERE id = ? RETURNING *";
-    const args = [title, id];
-    console.log(args)
+  static async update(title, description, id) {
+    const query =
+      "UPDATE posts SET title = ?, description = ? WHERE id = ? RETURNING *";
+    const args = [title, description, id];
+    console.log(args);
     const { rows } = await knex.raw(query, args);
     return rows;
-    }
+  }
 }
 
 module.exports = Post;

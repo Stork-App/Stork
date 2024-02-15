@@ -12,15 +12,11 @@ export default function DisplayPosts() {
   return (
     <>
       <h1>Posts</h1>
-
       <ul>
-        {posts.map((post) => (
-          <ul key={post.id}>
-            <></>
-            <PostLink post={post} /> <li>{post.description}</li>
-          </ul>
-        ))}
-      </ul>
+      {
+        posts.map((post) => <li key={post.id}><PostLink post={post}/>{post.description}</li>)
+      }
+    </ul>
     </>
   );
 }

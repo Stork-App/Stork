@@ -12,4 +12,4 @@ export const createPost = async ({ user_id, title, description }) => (
   };
 
   
-  export const getPosts = async (id) => fetchHandler(`${baseUrl}/${id}`);
+  export const getPost = async (id) => fetchHandler(`${baseUrl}/${id}`);

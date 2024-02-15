@@ -16,12 +16,11 @@ class Thread {
     return threadEntry;
   }
 
-  static async find(id) {
-    const query = "SELECT * FROM threads WHERE id = ?";
-    const args = [id];
+  static async find(post_id) {
+    const query = "SELECT * FROM threads WHERE post_id = ?";
+    const args = [post_id];
     const { rows } = await knex.raw(query, args);
-    const thread = rows[0];
-    return thread || []
+    return rows
   }
 
   static async update(comment, id) {

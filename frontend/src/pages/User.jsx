@@ -47,7 +47,6 @@ export default function UserPage() {
   // Ideally, this would update if we mutated it
   // But we also have to consider that we may NOT be on the current users page
   const profileUsername = isCurrentUserProfile ? currentUser.username : userProfile.username;
-
   
 
   return <>

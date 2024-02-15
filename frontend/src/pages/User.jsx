@@ -33,7 +33,7 @@ export default function UserPage() {
     loadUser();
   }, [id]);
 
-  console.log('UserAverages', userAvgs.mood)
+  // console.log('UserAverages', userAvgs.mood)
   const handleLogout = async () => {
     logUserOut();
     setCurrentUser(null);

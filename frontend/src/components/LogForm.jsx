@@ -25,7 +25,7 @@ export default function LogForm({ currentUser}) {
     obj.back_pain = setRangeValues(obj.back_pain)
     obj.nausea = setRangeValues(obj.nausea)
     obj.fatigue = setRangeValues(obj.fatigue)
-    obj.mood = Number(obj.weeks)
+    obj.weeks = Number(obj.weeks)
     obj.user_id = Number(obj.user_id)
     console.log(obj)
     await createLog(obj)   

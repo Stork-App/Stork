@@ -9,6 +9,7 @@ exports.up = (knex) => knex.schema.createTable('logs', (table) =>{
     table.integer('back_pain').notNullable();
     table.integer('nausea').notNullable();
     table.integer('fatigue').notNullable();
+    table.integer('weeks').notNullable();
     table.integer('user_id')
     table.foreign('user_id').references('id').inTable('users')
     table.timestamps(true,true)

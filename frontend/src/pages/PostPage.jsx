@@ -1,32 +1,12 @@
-import { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { getPost } from "../adapters/post-adapter";
+import CommentForm from "../components/PostComponents/CommentForm";
+import DisplayPost from "../components/PostComponents/DisplayPost";
+import DisplayThreads from "../components/PostComponents/DisplayThreads";
 
 export default function PostPage() {
-    const [forumPost, setForumPost] = useState(null);
-    const [errorText, setErrorText] = useState(null);
-    const { id } = useParams();
-    
-  useEffect(() => {
-    const loadPost = async () => {
-      const [post, error] = await getPost(id);
-      if (error) return setErrorText(error.message);
-      setForumPost(post);
-    };
-
-    loadPost();
-  }, [id]);
-
-  if (!forumPost && !errorText) return null;
-  if (errorText) return <p>{errorText}</p>;
-
-  console.log(forumPost)
-
+  
     return <>
-
-       <h1>{forumPost.title}</h1>
-       <h1>{forumPost.description}</h1>
-
-       
+       <DisplayPost/>  
+       <DisplayThreads/>
+       {/* <CommentForm/> */}
     </>
 }

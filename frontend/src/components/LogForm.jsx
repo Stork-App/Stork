@@ -3,7 +3,7 @@ import { createLog } from "../adapters/log-adapter";
 export default function LogForm({ currentUser}) {
 
   const setRangeValues = (sliderInput) => {
-    if (sliderInput > 0 && sliderInput <= 20){
+    if (sliderInput => 0 && sliderInput <= 20){
       return sliderInput = 1;
     } else if(sliderInput > 20 && sliderInput <= 40){
       return sliderInput = 2;

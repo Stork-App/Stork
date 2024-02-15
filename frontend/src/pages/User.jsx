@@ -33,7 +33,7 @@ export default function UserPage() {
     loadUser();
   }, [id]);
 
-  console.log('UserAverages', userAvgs.mood)
+  // console.log('UserAverages', userAvgs.mood)
   const handleLogout = async () => {
     logUserOut();
     setCurrentUser(null);
@@ -80,7 +80,8 @@ export default function UserPage() {
           <th>abd_pain</th>
           <th>back_pain</th>
           <th>Nausea</th>
-          <th>fatigue</th>
+          <th>Fatigue</th>
+          <th>Weeks</th>
           <th>Created At</th>
           <th>Actions</th>
         </tr>
@@ -93,6 +94,7 @@ export default function UserPage() {
             <td>{entry.back_pain}</td>
             <td>{entry.nausea}</td>
             <td>{entry.fatigue}</td>
+            <td>{entry.weeks}</td>
             <td>{new Date(entry.created_at).toLocaleTimeString()}</td>
             <td>
               {(entry.created_at) ? (

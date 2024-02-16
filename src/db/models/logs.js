@@ -4,7 +4,7 @@ const knex = require('../knex');
 class Logs {
 
     static async list(user_id) {
-      const query = 'SELECT * FROM logs WHERE user_id = ?';
+      const query = 'SELECT * FROM logs WHERE user_id = ? ORDER BY created_at DESC';
       const args = [user_id]
       const { rows } = await knex.raw(query,args);
       const logs = rows

@@ -5,17 +5,21 @@ import { getUser } from "../adapters/user-adapter";
 import { getAvgLogs } from "../adapters/log-adapter";
 import { logUserOut } from "../adapters/auth-adapter";
 import UpdateUsernameForm from "../components/UpdateUsernameForm";
-import LogForm from "../components/LogForm";
-import { getLogs } from "../adapters/log-adapter";
+import LogForm from "../components/LogForm";    
+import { getLogs, updateLog } from "../adapters/log-adapter";
+
+
 
 
 export default function UserPage() {
-  const navigate = useNavigate();
+ const navigate = useNavigate();
   const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
   const [userProfile, setUserProfile] = useState(null);
   const [errorText, setErrorText] = useState(null);
-  const [userLogs, setUsersLogs] = useState([])
+  const [userLogs, setUsersLogs] = useState(null)
   const [userAvgs, setUserAverages] = useState([]);
+  const [editingLog, setEditingLog] = useState(null); 
+
   const { id } = useParams();
   const isCurrentUserProfile = currentUser && currentUser.id === Number(id);
 
@@ -23,6 +27,7 @@ export default function UserPage() {
     const loadUser = async () => {
       const [user, error] = await getUser(id);
       const [logs] = await getLogs(id);
+      console.log(logs[0].created_at)
       const [avgs] = await getAvgLogs(id);
       setUsersLogs(logs)
       setUserAverages(avgs)
@@ -39,7 +44,7 @@ export default function UserPage() {
     setCurrentUser(null);
     navigate('/');
   };
-
+ 
   if (!userProfile && !errorText) return null;
   if (errorText) return <p>{errorText}</p>;
 
@@ -47,9 +52,41 @@ export default function UserPage() {
   // Ideally, this would update if we mutated it
   // But we also have to consider that we may NOT be on the current users page
   const profileUsername = isCurrentUserProfile ? currentUser.username : userProfile.username;
-  
 
+  const handleLogUpdate = async (event) => {
+    event.preventDefault(); // Prevent the default form submit action
+
+    // Correctly capture the form data
+    const formData = new FormData(event.target);
+    const updatedLogData = {
+        mood: formData.get('mood'),
+        abd_pain: formData.get('abd_pain'),
+        back_pain: formData.get('back_pain'),
+        nausea: formData.get('nausea'),
+        fatigue: formData.get('fatigue'),
+    };
+    console.log(updatedLogData)
+  
+    try {
+        // Assuming editingLog.id contains the correct ID
+      await updateLog(editingLog.id, updatedLogData, currentUser.id); // Pass currentUser.id if your backend requires it
+    
+        // If the update was successful, you might want to refresh the logs displayed
+      const logs = await getLogs(currentUser.id); // Assuming getLogs fetches all logs for the current user
+
+  
+      console.log(logs)
+        setUsersLogs(logs[0]);
+        setEditingLog(null); // Reset editing state
+    } catch (error) {
+        console.error("Failed to update log:", error);
+        // Handle error, e.g., by displaying an error message to the user
+    }
+};
+
+  
   return <>
+    
     <h1>{profileUsername}</h1>
     { !!isCurrentUserProfile && <button onClick={handleLogout}>Log Out</button> }
     <p>If the user had any data, here it would be</p>
@@ -87,7 +124,7 @@ export default function UserPage() {
         </tr>
       </thead>
       <tbody>
-        {userLogs.map((entry) => (
+        {userLogs.map((entry,index) => (
           <tr key={entry.id}>
             <td>{entry.mood}</td>
             <td>{entry.abd_pain}</td>
@@ -97,8 +134,10 @@ export default function UserPage() {
             <td>{entry.weeks}</td>
             <td>{new Date(entry.created_at).toLocaleTimeString()}</td>
             <td>
-              {(entry.created_at) ? (
-                <button>Edit</button>
+
+              {(index === 0) ? (
+             <button onClick={() => setEditingLog(entry)}>Edit</button>
+
               ) : (
                 'Edit Locked'
               )}
@@ -107,5 +146,17 @@ export default function UserPage() {
         ))}
       </tbody>
     </table>
+    {editingLog && (
+  <form onSubmit={handleLogUpdate}>
+       <input name="mood" defaultValue={editingLog.mood} />
+<input name="abd_pain" defaultValue={editingLog.abd_pain} />
+<input name="back_pain" defaultValue={editingLog.back_pain} />
+<input name="nausea" defaultValue={editingLog.nausea} />
+<input name="fatigue" defaultValue={editingLog.fatigue} />
+
+    {/* Repeat for abd_pain, back_pain, nausea, fatigue */}
+    <button type="submit">Save Changes</button>
+  </form>
+)}
   </>;
 }

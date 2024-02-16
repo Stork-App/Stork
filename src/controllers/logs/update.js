@@ -6,7 +6,7 @@ const update = async (req, res) => {
   } = req;
 console.log(logId, user_id)
   try {
-      const updatedLog = await Logs.update(logId, user_id, mood, abd_pain, back_pain, nausea, fatigue);
+      const updatedLog = await Logs.update(mood, abd_pain, back_pain, nausea, fatigue, logId, user_id,);
       if (updatedLog) {
         res.json(updatedLog);
         console.log('successfull')

@@ -46,7 +46,6 @@ const setRangeValues = (sliderInput) => {
     obj.user_id = Number(obj.user_id)
     console.log(obj)
     await createLog(obj)
-    
     event.target.reset();
   };
 

@@ -7,6 +7,6 @@ export default function PostPage() {
     return <>
        <DisplayPost/>  
        <DisplayThreads/>
-       {/* <CommentForm/> */}
+       <CommentForm/>
     </>
 }

@@ -33,6 +33,9 @@ export default function App() {
         <Route path='/posts' element={<ForumPage />} />
         <Route path='/posts/:id' element={<PostPage/>} />
 
+        <Route path='/posts' element={<ForumPage />} />
+        <Route path='/posts/:id' element={<PostPage/>} />
+
         <Route path='*' element={<NotFoundPage />} />
       </Routes>
     </main>

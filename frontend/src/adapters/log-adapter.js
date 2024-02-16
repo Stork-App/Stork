@@ -2,9 +2,9 @@ import { fetchHandler, getPostOptions, getPatchOptions } from "../utils";
 
 const baseUrl = '/api/logs';
 
-export const createLog = async ({ mood, abd_pain, back_pain, nausea, fatigue, user_id }) => {
+export const createLog = async ({ mood, abd_pain, back_pain, nausea, fatigue, weeks, user_id }) => {
   console.log('hi');
-  fetchHandler(baseUrl, getPostOptions({ mood, abd_pain, back_pain, nausea, fatigue, user_id }))
+  fetchHandler(baseUrl, getPostOptions({ mood, abd_pain, back_pain, nausea, fatigue, weeks, user_id }))
 };
 
 export const getAllLogs = async () => {

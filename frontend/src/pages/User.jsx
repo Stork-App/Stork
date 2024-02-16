@@ -38,7 +38,7 @@ export default function UserPage() {
     loadUser();
   }, [id]);
 
-  console.log('UserAverages', userAvgs.mood)
+  // console.log('UserAverages', userAvgs.mood)
   const handleLogout = async () => {
     logUserOut();
     setCurrentUser(null);
@@ -52,6 +52,7 @@ export default function UserPage() {
   // Ideally, this would update if we mutated it
   // But we also have to consider that we may NOT be on the current users page
   const profileUsername = isCurrentUserProfile ? currentUser.username : userProfile.username;
+
   const handleLogUpdate = async (event) => {
     event.preventDefault(); // Prevent the default form submit action
 
@@ -72,6 +73,7 @@ export default function UserPage() {
     
         // If the update was successful, you might want to refresh the logs displayed
       const logs = await getLogs(currentUser.id); // Assuming getLogs fetches all logs for the current user
+
   
       console.log(logs)
         setUsersLogs(logs[0]);
@@ -115,7 +117,8 @@ export default function UserPage() {
           <th>abd_pain</th>
           <th>back_pain</th>
           <th>Nausea</th>
-          <th>fatigue</th>
+          <th>Fatigue</th>
+          <th>Weeks</th>
           <th>Created At</th>
           <th>Actions</th>
         </tr>
@@ -128,6 +131,7 @@ export default function UserPage() {
             <td>{entry.back_pain}</td>
             <td>{entry.nausea}</td>
             <td>{entry.fatigue}</td>
+            <td>{entry.weeks}</td>
             <td>{new Date(entry.created_at).toLocaleTimeString()}</td>
             <td>
 

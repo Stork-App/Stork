@@ -8,15 +8,12 @@ import UpdateUsernameForm from "../components/UpdateUsernameForm";
 import LogForm from "../components/LogForm";    
 import { getLogs, updateLog } from "../adapters/log-adapter";
 
-
-
-
 export default function UserPage() {
  const navigate = useNavigate();
   const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
   const [userProfile, setUserProfile] = useState(null);
   const [errorText, setErrorText] = useState(null);
-  const [userLogs, setUsersLogs] = useState(null)
+  const [userLogs, setUsersLogs] = useState(null);
   const [userAvgs, setUserAverages] = useState([]);
   const [editingLog, setEditingLog] = useState(null); 
 

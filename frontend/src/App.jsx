@@ -11,6 +11,7 @@ import UsersPage from './pages/Users';
 import UserPage from './pages/User';
 import ForumPage from './pages/Forum';
 import PostPage from './pages/PostPage'
+import GraphPage from './pages/GraphPage';
 
 export default function App() {
   const { setCurrentUser } = useContext(UserContext);
@@ -35,6 +36,8 @@ export default function App() {
 
         <Route path='/posts' element={<ForumPage />} />
         <Route path='/posts/:id' element={<PostPage/>} />
+
+        <Route path='/logs/:id' element={<GraphPage />} />
 
         <Route path='*' element={<NotFoundPage />} />
       </Routes>

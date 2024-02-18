@@ -1,5 +1,7 @@
 import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
+import { logUserOut } from "../adapters/auth-adapter";
 import CurrentUserContext from "../contexts/current-user-context";
 
 import * as React from 'react';
@@ -17,12 +19,15 @@ import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 
 export default function MenuAppBar() {
-  const { currentUser } = useContext(CurrentUserContext);
+  const navigate = useNavigate();
+  const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
   const [auth, setAuth] = React.useState(true);
   const [anchorEl, setAnchorEl] = React.useState(null);
 
-  const handleChange = (event) => {
-    setAuth(event.target.checked);
+  const handleLogout = async () => {
+    logUserOut();
+    setCurrentUser(null);
+    navigate('/');
   };
 
   const handleMenu = (event) => {
@@ -69,6 +74,9 @@ export default function MenuAppBar() {
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
               >
+              <MenuItem>
+                <NavLink to='/'>Home</NavLink>
+              </MenuItem>
               {currentUser ? (
                   [
                     <MenuItem key="profile" onClick={handleClose}>
@@ -76,6 +84,9 @@ export default function MenuAppBar() {
                     </MenuItem>,
                     <MenuItem key="stats" onClick={handleClose}>
                       <NavLink to={`/logs/${currentUser.id}`}>Stats</NavLink>
+                    </MenuItem>,
+                    <MenuItem key="logout">
+                      
                     </MenuItem>
                   ]
                 ) : (

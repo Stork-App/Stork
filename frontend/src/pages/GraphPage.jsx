@@ -13,7 +13,7 @@ export default function GraphPage() {
     const [logs] = await getLogs(currentUser.id)
     console.log(logs)
   }
-  loadLogs();
+  loadLogs().weeks;
 
 
   return <>

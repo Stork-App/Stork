@@ -2,29 +2,123 @@ import { NavLink } from "react-router-dom";
 import { useContext } from "react";
 import CurrentUserContext from "../contexts/current-user-context";
 
-export default function SiteHeadingAndNav() {
+import * as React from 'react';
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import IconButton from '@mui/material/IconButton';
+import MenuIcon from '@mui/icons-material/Menu';
+import AccountCircle from '@mui/icons-material/AccountCircle';
+import Switch from '@mui/material/Switch';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormGroup from '@mui/material/FormGroup';
+import MenuItem from '@mui/material/MenuItem';
+import Menu from '@mui/material/Menu';
+
+export default function MenuAppBar() {
   const { currentUser } = useContext(CurrentUserContext);
+  const [auth, setAuth] = React.useState(true);
+  const [anchorEl, setAnchorEl] = React.useState(null);
 
-  return <header>
-    <a id='logo' href='\'>React/Express Auth</a>
-    <nav>
-      <ul>
-        <li><NavLink to='/'>Home</NavLink></li>
-        <li><NavLink to='/posts' end={true}>Forum</NavLink></li>
-        <li><NavLink to='/users' end={true}>Users</NavLink></li>
+  const handleChange = (event) => {
+    setAuth(event.target.checked);
+  };
 
-        {
-          currentUser
-            ? <>
-              <li><NavLink to={`/users/${currentUser.id}`}>{currentUser.username}</NavLink></li>
-              <li><NavLink to={`/logs/${currentUser.id}`}>Stats</NavLink></li>
-              </>
-            : <>
-              <li><NavLink to='/login'>Login</NavLink></li>
-              <li><NavLink to='/sign-up'>Sign Up</NavLink></li>
-            </>
-        }
-      </ul>
-    </nav>
-  </header>;
+  const handleMenu = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  return (
+    <Box sx={{ flexGrow: 1 }}>
+      <AppBar >
+        <Toolbar>
+
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            Stork
+          </Typography>
+
+            {/* user icon functionality */}
+            <div>
+              <IconButton
+                size="large"
+                aria-label="account of current user"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                onClick={handleMenu}
+                color="inherit"
+              >
+                <AccountCircle />
+              </IconButton>
+              <Menu
+                id="menu-appbar"
+                anchorEl={currentUser}
+                anchorOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                open={Boolean(anchorEl)}
+                onClose={handleClose}
+              >
+                {currentUser && (
+                  <>
+                  <MenuItem onClick={handleClose}>
+                  <NavLink to={`/users/${currentUser.id}`}>{currentUser.username}</NavLink>
+                  </MenuItem>
+                  <MenuItem onClick={handleClose}>
+                    
+                  </MenuItem>
+                  </>
+                )}
+                {!currentUser && (
+                  <>
+                  <MenuItem onClick={handleClose}>
+                  <NavLink to='/login'>Login</NavLink>
+                  </MenuItem>
+                  <MenuItem onClick={handleClose}>
+                  <NavLink to='/sign-up'>Sign Up</NavLink>
+                  </MenuItem>
+                  </>
+                )}
+              </Menu>
+            </div>
+        </Toolbar>
+      </AppBar>
+    </Box>
+  );
 }
+// export default function SiteHeadingAndNav() {
+//   const { currentUser } = useContext(CurrentUserContext);
+
+//   return <header>
+//     <a id='logo' href='\'>React/Express Auth</a>
+//     <nav>
+//       <ul>
+//         <li><NavLink to='/'>Home</NavLink></li>
+//         <li><NavLink to='/posts' end={true}>Forum</NavLink></li>
+//         <li><NavLink to='/users' end={true}>Users</NavLink></li>
+
+//         {
+//           currentUser
+//             ? <>
+//               <li><NavLink to={`/users/${currentUser.id}`}>{currentUser.username}</NavLink></li>
+//               <li><NavLink to={`/logs/${currentUser.id}`}>Stats</NavLink></li>
+//               </>
+//             : <>
+//               <li><NavLink to='/login'>Login</NavLink></li>
+//               <li><NavLink to='/sign-up'>Sign Up</NavLink></li>
+//             </>
+//         }
+//       </ul>
+//     </nav>
+//   </header>;
+// }

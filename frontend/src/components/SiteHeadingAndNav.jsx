@@ -56,7 +56,7 @@ export default function MenuAppBar() {
               </IconButton>
               <Menu
                 id="menu-appbar"
-                anchorEl={currentUser}
+                anchorEl={anchorEl}
                 anchorOrigin={{
                   vertical: 'top',
                   horizontal: 'right',
@@ -69,25 +69,24 @@ export default function MenuAppBar() {
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
               >
-                {currentUser && (
-                  <>
-                  <MenuItem onClick={handleClose}>
-                  <NavLink to={`/users/${currentUser.id}`}>{currentUser.username}</NavLink>
-                  </MenuItem>
-                  <MenuItem onClick={handleClose}>
-                    
-                  </MenuItem>
-                  </>
-                )}
-                {!currentUser && (
-                  <>
-                  <MenuItem onClick={handleClose}>
-                  <NavLink to='/login'>Login</NavLink>
-                  </MenuItem>
-                  <MenuItem onClick={handleClose}>
-                  <NavLink to='/sign-up'>Sign Up</NavLink>
-                  </MenuItem>
-                  </>
+              {currentUser ? (
+                  [
+                    <MenuItem key="profile" onClick={handleClose}>
+                      <NavLink to={`/users/${currentUser.id}`}>{currentUser.username}</NavLink>
+                    </MenuItem>,
+                    <MenuItem key="stats" onClick={handleClose}>
+                      <NavLink to={`/logs/${currentUser.id}`}>Stats</NavLink>
+                    </MenuItem>
+                  ]
+                ) : (
+                  [
+                    <MenuItem key="login" onClick={handleClose}>
+                      <NavLink to='/login'>Login</NavLink>
+                    </MenuItem>,
+                    <MenuItem key="signup" onClick={handleClose}>
+                      <NavLink to='/sign-up'>Sign Up</NavLink>
+                    </MenuItem>
+                  ]
                 )}
               </Menu>
             </div>

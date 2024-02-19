@@ -17,6 +17,9 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import FormGroup from '@mui/material/FormGroup';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
+import CribIcon from '@mui/icons-material/Crib';
+import HomeIcon from '@mui/icons-material/Home';
+import ForumIcon from '@mui/icons-material/Forum';
 
 export default function MenuAppBar() {
   const navigate = useNavigate();
@@ -42,11 +45,18 @@ export default function MenuAppBar() {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar >
         <Toolbar>
+        <IconButton onClick={() => navigate('/')}>
+          <HomeIcon />
+        </IconButton>
 
+        <IconButton onClick={() => navigate('/posts')}>
+          <ForumIcon />
+        </IconButton>
+
+          <CribIcon/>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Stork
           </Typography>
-
             {/* user icon functionality */}
             <div>
               <IconButton
@@ -74,20 +84,15 @@ export default function MenuAppBar() {
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
               >
-              <MenuItem>
-                <NavLink to='/'>Home</NavLink>
-              </MenuItem>
               {currentUser ? (
                   [
                     <MenuItem key="profile" onClick={handleClose}>
-                      <NavLink to={`/users/${currentUser.id}`}>{currentUser.username}</NavLink>
+                      <NavLink to={`/users/${currentUser.id}`}>My Profile</NavLink>
                     </MenuItem>,
                     <MenuItem key="stats" onClick={handleClose}>
-                      <NavLink to={`/logs/${currentUser.id}`}>Stats</NavLink>
+                      <NavLink to={`/logs/${currentUser.id}`}>My Stats</NavLink>
                     </MenuItem>,
-                    <MenuItem key="logout">
-                      
-                    </MenuItem>
+                    <MenuItem key="logout" onClick={handleLogout}>Log Out</MenuItem>
                   ]
                 ) : (
                   [

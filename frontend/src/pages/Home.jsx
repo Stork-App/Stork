@@ -9,7 +9,7 @@ export default function HomePage() {
   return (
     
     <>
-      <Header />
+      <Header sx={{mt: 10}}/>
       <Mission />
       <Features />
       <Articles />

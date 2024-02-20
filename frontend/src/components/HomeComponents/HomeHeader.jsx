@@ -3,8 +3,8 @@ export default function HomeHeader() {
     <>
       <section id="home-section1" className="home-section1-left">
         <section className="home-content">
-          <h1 className="main-heading">
-            The Enchanting Journey of Maternal Grace
+          <h1 className="main-heading" style={{fontSize: 80}}>
+            Stork
           </h1>
           <p className="sub-text">
             Improving healthcare outcomes by enabling patients to track and

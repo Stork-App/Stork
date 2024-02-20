@@ -24,10 +24,8 @@ console.log(currentUser)
 
   useEffect(() => {
     const loadUser = async () => {
-
       const [user, error] = await getUser(id);
       const [logs] = await getLogs(id);
- 
       const [avgs] = await getAvgLogs(id);
       setUsersLogs(logs)
       setUserAverages(avgs)

@@ -35,7 +35,7 @@ function SignUpPage() {
       if (error) throw new Error(error.message);
 
       setCurrentUser(user);
-      navigate("/");
+      navigate(`/users/${user.id}`);
     } catch (error) {
       setErrorText("Error signing up. Please try again.");
     }

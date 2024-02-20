@@ -11,6 +11,16 @@ export const getAllUsers = async () => {
   return users || [];
 };
 
+export const getUserById = async (id) => {
+  try {
+    const user = await fetchHandler(`${baseUrl}/${id}`);
+    return user;
+  } catch (error) {
+    console.error('Error fetching user by ID:', error);
+    throw error;
+  }
+};
+
 export const getUser = async (id) => fetchHandler(`${baseUrl}/${id}`);
 
 export const updateUsername = async ({ id, username }) => (

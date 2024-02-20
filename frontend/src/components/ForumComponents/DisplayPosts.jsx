@@ -23,7 +23,6 @@ export default function DisplayPosts() {
       <ul>
         {posts.map((post) => (
           <li key={post.id}>
-            {currentUser.username}{formatCreatedAt(post.created_at)} 
             <br />
             <PostLink post={post} />
             <br />

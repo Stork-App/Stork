@@ -27,7 +27,7 @@ console.log(currentUser)
 
       const [user, error] = await getUser(id);
       const [logs] = await getLogs(id);
-       console.log(logs[0].created_at)
+ 
       const [avgs] = await getAvgLogs(id);
       setUsersLogs(logs)
       setUserAverages(avgs)
@@ -52,13 +52,17 @@ console.log(currentUser)
   
   useEffect(() => {
     // Check if 24 hours have passed since the last log entry
-    if (userLogs && userLogs.length > 0) {
+    if (!userLogs || userLogs.length === 0) {
+      setShowLogForm(true);
+    } else if (userLogs.length > 0) {
       const lastLogCreatedAt = new Date(userLogs[0].created_at);
       const twentyFourHoursAgo = new Date();
       twentyFourHoursAgo.setDate(twentyFourHoursAgo.getDate() - 1);
   
       if (lastLogCreatedAt <= twentyFourHoursAgo) {
         setShowLogForm(true);
+      } else {
+        setShowLogForm(false); // Optionally hide the form if conditions are not met
       }
     }
   }, [userLogs]);

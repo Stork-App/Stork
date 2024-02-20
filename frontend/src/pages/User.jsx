@@ -27,7 +27,6 @@ console.log(currentUser)
 
       const [user, error] = await getUser(id);
       const [logs] = await getLogs(id);
-       console.log(logs[0].created_at)
       const [avgs] = await getAvgLogs(id);
       setUsersLogs(logs)
       setUserAverages(avgs)

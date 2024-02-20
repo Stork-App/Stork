@@ -6,7 +6,8 @@ const createEntry = async (req, res) => {
   
   
     const entry = await Entry.create( user_id, log_id);
-  
+    session.entryId = entry.id;
+
     res.send(entry);
   };
   

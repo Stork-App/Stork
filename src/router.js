@@ -3,11 +3,16 @@ const userController = require("./controllers/user/index"); // the "/index" part
 const logController = require("./controllers/logs/index");
 const postController = require("./controllers/posts/index");
 const threadController = require("./controllers/threads/index");
+const entryController = require("./controllers/entries/index")
 const addModelsToRequest = require("./middleware/add-models-to-request");
 const checkAuthentication = require("./middleware/check-authentication");
 
+
 const Router = express.Router();
 Router.use(addModelsToRequest);
+
+Router.get("/entries", entryController.list);
+Router.post("/entries", entryController.create);
 
 Router.get("/threads", threadController.list);
 Router.post("/threads", threadController.create);

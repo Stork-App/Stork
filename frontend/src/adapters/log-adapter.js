@@ -12,6 +12,16 @@ export const getAllLogs = async () => {
   return logs || [];
 };
 
+
+export const updateLog = async (id, updatedLogData, userId) => {
+  const updateData = { ...updatedLogData, user_id: userId }; // Include userId if necessary
+  console.log(updateData)
+  const updatedLog = await fetchHandler(`${baseUrl}/${id}`, getPatchOptions(updateData));
+  console.log(updatedLog)
+  return updatedLog;
+};
+
+
 export const getLogs = async (id) => await fetchHandler(`${baseUrl}/${id}`);
 
 export const getAvgLogs = async(id) => {

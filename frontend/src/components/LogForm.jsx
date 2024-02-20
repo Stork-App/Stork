@@ -1,7 +1,7 @@
-import { createLog } from "../adapters/log-adapter";
+import { createLog, updateLog } from "../adapters/log-adapter";
 
-export default function LogForm({ currentUser}) {
-
+export default function LogForm({ currentUser, updateLogs, setShowLogForm, editingLog}) {
+ 
   const setRangeValues = (sliderInput) => {
     if (sliderInput => 0 && sliderInput <= 20){
       return sliderInput = 1;
@@ -27,14 +27,26 @@ export default function LogForm({ currentUser}) {
     obj.fatigue = setRangeValues(obj.fatigue)
     obj.weeks = Number(obj.weeks)
     obj.user_id = Number(obj.user_id)
-    console.log(obj)
+
+    if (editingLog) {
+      await updateLog(editingLog.id, obj, currentUser.id)
+      updateLogs();
+      setShowLogForm(false);
+      setEditingLog(null);
+    }
+   
+
     await createLog(obj)   
+    updateLogs()
+    setShowLogForm(false);
     event.target.reset();
+    
   };
 
-  return <form onSubmit={handleSubmit} aria-labelledby="dailyLog-heading">
+  return <form  className="log-form-container" onSubmit={handleSubmit} aria-labelledby="dailyLog-heading">
     <h2 id='dailyLog-heading'>Welcome Back!</h2>
     <h3>How are you feeling today?</h3>
+    <fieldset>
     <input type="radio" id="worst" name="mood" value = "1" required/>
     <label htmlFor="worst">Worst</label>
 
@@ -49,7 +61,7 @@ export default function LogForm({ currentUser}) {
 
     <input type="radio" id="veryGood" name="mood" value="5"/>
     <label htmlFor="veryGood">Very Good</label>
-
+    </fieldset>
     <h3>Abdominal Pain</h3>
     <input type="range" min="0" max="100" id="abdPain" name = "abd_pain"/>
 
@@ -63,7 +75,7 @@ export default function LogForm({ currentUser}) {
     <input type="range" min="0" max="100" id="fatigue" name = "fatigue"/>
     <br></br>
     <label htmlFor="weeks">How far along  are you? </label>
-    <select id="weeks" name="weeks">
+    <select id="weeks" name="weeks"required>
       <option value="">Select...</option>
       <option value="2">2 Weeks</option>
       <option value="3">3 Weeks</option>

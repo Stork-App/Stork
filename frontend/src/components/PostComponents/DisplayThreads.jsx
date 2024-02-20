@@ -17,6 +17,12 @@ export default function DisplayThreads() {
     loadThreads();
   }, [id]);
 
+  const formatCreatedAt = (createdAt) => {
+    const timestamp = new Date(createdAt);
+    const options = { year: 'numeric', month: 'numeric', day: 'numeric' };
+    return timestamp.toLocaleDateString(undefined, options);
+  };
+
   if (!postThreads && !errorText) return null;
   if (errorText) return <p>{errorText}</p>;
 
@@ -25,7 +31,7 @@ export default function DisplayThreads() {
       <h1>Comments</h1>
 
       {postThreads.map((thread) => (
-        <p key={thread.id}>{thread.comment}</p>
+        <li key={thread.id}>{thread.comment}</li>
       ))}
 
     </>

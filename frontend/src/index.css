@@ -52,3 +52,53 @@ form {
   font-weight: bold;
   font-style: italic;
 }
+
+
+/** userspage **/
+.log-form-container {
+  position: fixed;
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%); 
+  background-color: rgba(255, 255, 255, 0.9); 
+  padding: 20px; 
+  border-radius: 8px; 
+  z-index: 9999; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 4px solid whitesmoke;
+  box-shadow:8px 5px 2px rgb(199, 199, 199);
+}
+fieldset{
+  display: flex;
+  border: none;
+}
+.log-form-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); 
+  z-index: 9998;
+}
+
+
+table{
+  text-align: center;
+  width: 86%;
+  margin: auto;
+  border-spacing: 0;
+}
+
+th{
+  border: 1px solid black;
+  background-color:rgb(217, 210, 233);
+  padding:7px;
+}
+td{
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+}
+

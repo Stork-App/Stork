@@ -23,7 +23,8 @@ export default function DisplayPosts() {
       <ul>
         {posts.map((post) => (
           <li key={post.id}>
-            <br />
+            <p>This is a test</p>
+            {/* <br /> */}
             <PostLink post={post} />
             <br />
             {post.description}

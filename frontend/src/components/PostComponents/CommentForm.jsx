@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import CurrentUserContext from "../../contexts/current-user-context";
 import { createThread } from "../../adapters/thread-adapter";
 
-export default function CommentForm() {
+export default function CommentForm({fetchComments}) {
   const { id } = useParams();
   const { currentUser } = useContext(CurrentUserContext);
   const [errorText, setErrorText] = useState("");
@@ -26,6 +26,8 @@ export default function CommentForm() {
         setErrorText("Error posting comment. Please try again.");
       } else {
         console.log("Comment posted successfully:", post);
+        event.target.reset()
+        fetchComments()
       }
     } catch (err) {
       console.error("Unexpected error:", err);

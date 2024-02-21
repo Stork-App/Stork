@@ -4,22 +4,17 @@ import { getAllPosts } from "../../adapters/post-adapter";
 import CurrentUserContext from "../../contexts/current-user-context";
 import { getAllUsers } from "../../adapters/user-adapter";
 
-export default function DisplayPosts() {
-  const [posts, setPosts] = useState([]);
-  const [users, setUsers] = useState([]);
+export default function DisplayPosts({fetchPosts, posts, users}) {
+  
   const { currentUser } = useContext(CurrentUserContext);
 
   useEffect(() => {
-    getAllPosts()
-      .then((posts) => {
-        setPosts(posts);
-        const userIds = Array.from(new Set(posts.map((post) => post.user_id)));
-        return getAllUsers(userIds);
-      })
-      .then(setUsers);
+    fetchPosts()
+
+    
   }, []);
 
-  console.log(posts);
+
 
   return (
     <>

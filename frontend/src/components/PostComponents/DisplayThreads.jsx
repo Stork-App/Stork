@@ -1,30 +1,11 @@
-import { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { getThreads } from "../../adapters/thread-adapter";
-import { getAllUsers } from "../../adapters/user-adapter";
+import { useEffect, useState } from "react";
 
-export default function DisplayThreads() {
-  const [postThreads, setPostThreads] = useState([]);
-  const [users, setUsers] = useState([]);
+export default function DisplayThreads({fetchComments, postThreads, users, id}) {
+
   const [errorText, setErrorText] = useState(null);
-  const { id } = useParams();
 
   useEffect(() => {
-    const loadThreads = async () => {
-      const [threads, error] = await getThreads(id);
-      if (error) return setErrorText(error.message);
-      setPostThreads(threads);
-
-      const userIds = Array.from(new Set(threads.map((thread) => thread.user_id)));
-
-      const usersData = await getAllUsers(userIds);
-
-      const usersArray = Array.isArray(usersData) ? usersData : [usersData];
-
-      setUsers(usersArray);
-    };
-
-    loadThreads();
+    fetchComments()
   }, [id]);
 
   if (!postThreads && !errorText) return null;

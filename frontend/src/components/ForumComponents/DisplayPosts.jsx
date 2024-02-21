@@ -10,8 +10,6 @@ export default function DisplayPosts({fetchPosts, posts, users}) {
 
   useEffect(() => {
     fetchPosts()
-
-    
   }, []);
 
 

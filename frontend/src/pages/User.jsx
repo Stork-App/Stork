@@ -7,6 +7,7 @@ import { logUserOut } from "../adapters/auth-adapter";
 import UpdateUsernameForm from "../components/UpdateUsernameForm";
 import LogForm from "../components/LogForm";    
 import { getLogs, updateLog } from "../adapters/log-adapter";
+// import Graph from "../components/Graph";
 
 export default function UserPage() {
  const navigate = useNavigate();

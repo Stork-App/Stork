@@ -5,6 +5,7 @@ import DisplayThreads from "../components/PostComponents/DisplayThreads";
 import { getThreads } from "../adapters/thread-adapter";
 import { getAllUsers } from "../adapters/user-adapter";
 import { useParams } from "react-router-dom";
+import '../PostPage.css'
 
 export default function PostPage() {
   const [postThreads, setPostThreads] = useState([]);

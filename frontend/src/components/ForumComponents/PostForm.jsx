@@ -1,11 +1,10 @@
-import { useContext, useState, useRef } from "react";
+import { useContext, useState} from "react";
 import CurrentUserContext from "../../contexts/current-user-context";
 import { createPost } from "../../adapters/post-adapter";
 
 export default function PostForm({fetchPosts}) {
   const { currentUser } = useContext(CurrentUserContext);
   const [errorText, setErrorText] = useState("");
-  const formRef = useRef(null);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -16,19 +15,14 @@ export default function PostForm({fetchPosts}) {
       const title = formData.get("title");
       const comment = formData.get("text");
 
-      const [post, error] = await createPost({
+      await createPost({
         user_id: currentUser.id,
         title: title,
         description: comment,
       });
 
-      if (error) {
-        setErrorText("Error creating post. Please try again.");
-      } else {
-        console.log("Post created successfully:", post);
-        formRef.current.reset(); // Reset the form here
-        fetchPosts()
-      }
+      event.target.reset(); // Reset the form here
+      fetchPosts()
 
     } catch (err) {
       console.error("Unexpected error:", err);
@@ -45,8 +39,8 @@ export default function PostForm({fetchPosts}) {
 
   return (
     <>
-      <form onSubmit={handleSubmit} aria-labelledby="input-text" ref={formRef}> {/* Add the ref here */}
-        <label htmlFor="title">Title:</label> {/* Correct htmlFor attribute */}
+      <form onSubmit={handleSubmit} aria-labelledby="input-text" >
+        <label htmlFor="title">Title:</label>
         <textarea id="title" name="title" autoComplete="title" />
 
         <label htmlFor="text">Comment:</label>

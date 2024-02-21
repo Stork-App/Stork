@@ -1,7 +1,7 @@
 // import {} from 
 import Chart from 'chart.js/auto'
 import { Line } from 'react-chartjs-2';
-export default function Graph() {
+export default function Graph( { userLogs }) {
     const dataSet = [
         { weeks: 23, mood: 3 },
         { weeks: 24, mood: 3 },
@@ -11,32 +11,42 @@ export default function Graph() {
         { weeks: 28, mood: 1 },
         { weeks: 29, mood: 4 },
       ];
+      
+      let sortedUserLogs = userLogs.sort(
+        (log1, log2) => (log1.weeks > log2.weeks) ? 1 : (log1.weeks < log2.weeks) ? -1 : 0);
 
-    const data = {
-        labels: data.map(row => row.weeks),
+    const moodData = {
+        labels: sortedUserLogs.map(row => row.weeks),
         datasets: [
             {
                 label: 'Mood',
-                data: data.map(row => row.mood)
+                data: sortedUserLogs.map(row => row.mood)
             }
         ,]
     };
-    
-      return (
-    //     new Chart(
-    //     {
-    //       type: 'bar',
-    //       data: {
-    //         labels: data.map(row => row.weeks),
-    //         datasets: [
-    //           {
+
+    const abdPainData = {
+        labels: sortedUserLogs.map(row => row.weeks),
+        datasets: [
+            {
+                label: 'Abdominal Pain',
+                data: sortedUserLogs.map(row => row.abd_pain)
+            }
+        ,]
+    };
+
+    // const backPainData = {
+    //     labels: sortedUserLogs.map(row => row.weeks),
+    //     datasets: [
+    //         {
     //             label: 'Mood',
-    //             data: data.map(row => row.mood)
-    //           }
-    //         ]
-    //       }
-    //     }
-    //   )
-    <Line data={ data }/>
-    );
+    //             data: sortedUserLogs.map(row => row.back_pain)
+    //         }
+    //     ,]
+    // };
+    
+      return <>
+      <Line data={ moodData }/>
+      <Line data={ abdPainData }/>
+      </>
 }

@@ -21,7 +21,8 @@ export default function ForumPage() {
    
 
     return <>
-    <DisplayPosts fetchPosts={displayPostFunction} posts={posts} users={users}/>
     <PostForm fetchPosts={displayPostFunction}/>
+    <DisplayPosts fetchPosts={displayPostFunction} posts={posts} users={users}/>
+
     </>
 }

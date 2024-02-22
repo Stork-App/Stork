@@ -1,0 +1,97 @@
+/* General Body Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+  }
+  
+  /* Form and Comments Section */
+  .comment-form,
+  .comments-list,
+  .post-container {
+    background: #fff;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    list-style: none;
+  }
+  
+  /* Form Elements */
+  .comment-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .comment-label {
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .comment-textarea {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    height: 100px;
+    resize: vertical;
+  }
+  
+  .comment-submit-btn {
+    cursor: pointer;
+    background-color: #0056b3;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+  }
+  
+  .comment-submit-btn:hover {
+    background-color: #003d82;
+  }
+  
+  /* Error Text */
+  .error-text {
+    color: red;
+    font-weight: bold;
+  }
+  
+  /* Post Container */
+  .post-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .post-description {
+    margin-bottom: 20px;
+  }
+  
+  /* Comments List */
+  .comments-header {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+
+  
+  .comment-item {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .comment-user {
+    font-weight: bold;
+  }
+  
+  .comment-date {
+    font-size: 0.85em;
+    margin-left: 10px;
+    color: #666;
+  }
+  
+  .comment-text {
+    margin-top: 5px;
+  }
+  

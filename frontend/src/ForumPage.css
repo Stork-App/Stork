@@ -1,0 +1,95 @@
+/* Add this CSS in your styles file or as inline styles */
+
+/* body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f5f5f5;
+} */
+
+.container {
+  max-width: 800px;
+  margin: 100px auto 20px;
+  margin: 20px auto;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  /* padding-right: 20px; */
+}
+
+h1#postsHeader {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+ul.postsList {
+  list-style: none;
+  padding: 0;
+}
+
+li.postItem {
+  border-bottom: 1px solid #ddd;
+  padding: 15px 0;
+  margin-bottom: 20px; /* Move each post a little to the right */
+}
+
+strong.postUser {
+  color: #0079d3;
+  font-weight: bold;
+}
+
+span.postDate {
+  color: #555;
+  font-size: 0.8em;
+}
+
+PostLink {
+  color: #0079d3;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+p.postDescription {
+  color: #333;
+  margin-top: 10px;
+}
+
+form#postForm {
+  margin-top: 20px;
+}
+
+div.formField {
+  margin-bottom: 15px;
+}
+
+label.formLabel {
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+textarea.formInput {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+button.submitButton {
+  background-color: #0079d3;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button.submitButton:hover {
+  background-color: #005a9e;
+}
+
+p.errorText {
+  color: red;
+  margin-top: 10px;
+}

@@ -1,13 +1,18 @@
+import consultationIcon from '../images/ConsultationIcon.png'
+import backgroundImg from '../images/BackgroundImage1.png'; // Replace 'background.jpg' with the actual path to your background image
+
+
 export default function HomeMission() {
   return (
     <>
-      <section id="mission-section">
-        <section className="mission-content">
-          <h2>Our Mission</h2>
-          <p>
+      <section id="mission" >
+        <section  className="mission-content">
+          <h2 id="mission-text">Our Mission</h2>
+          <img id="mission-image" src={consultationIcon}/>
+          <p><b>
             Our mission is to provide users with a concise method of
             symptom-tracking by promoting medical self-advocacy to combat
-            maternal mortality rates.
+            maternal mortality rates.</b>
           </p>
         </section>
 

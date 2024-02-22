@@ -1,4 +1,6 @@
-
+import onPhone from '../images/OnPhoneGif.gif'
+import selfAdvocacy from '../images/SelfAdvocacyGif.gif'
+import forumImg from '../images/ForumGif.gif'
 
 export default function HomeFeatures() {
   return (
@@ -15,16 +17,20 @@ export default function HomeFeatures() {
         
         <section class="feature-items">
             <section class="feature-item">
-                <h3 class="feature-image-label">Image goes here!</h3>
-                <h4 class="feature-title">Daily Log</h4>
+                <img class="feature-image-label" src={onPhone}/>
+                <h4 class="feature-title">Complete A Daily Log</h4>
+                <p>We want you to have an organized and secure place to store all of your pregnancy symptoms. Complete your log form everyday for comprehensive symptom stats!With each entry, you are able to keep track of any changes for yourself, your healthcare provider, or even to get a second opinion.</p>
             </section>
             <section class="feature-item">
-                <h3 class="feature-image-label">Image goes here!</h3>
-                <h4 class="feature-title">Statistics for self-advocacy</h4>
+              <img class="feature-image-label" src={selfAdvocacy}/>
+                <h4 class="feature-title">Statistics for Self-Advocacy</h4>
+                <p>We understand how anxiety-inducing speaking up for yourself can be. That's why we created an easy-to-use data display model, your Stats page & Daily Log table. Studies show that self-advocacy can be more efficient when coupled with physical data.</p>
             </section>
             <section class="feature-item">
-                <h3 class="feature-image-label">Image goes here!</h3>
-                <h4 class="feature-title">Forum / Journal</h4>
+              <img class="feature-image-label" src={forumImg}/>
+                <h4 class="feature-title">Forum - Build Community!</h4>
+                <p>One of the most important aspects of growing your confidence for self advocacy is having a strong community behind you. Share your thoughts, referrals, struggles, reccomendations, or just general questions with other parents all around the world!</p>
+
             </section>
         </section>
       </section>

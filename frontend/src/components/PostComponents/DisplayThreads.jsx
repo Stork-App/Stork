@@ -1,31 +1,31 @@
 import { useEffect, useState } from "react";
 
-export default function DisplayThreads({fetchComments, postThreads, users, id}) {
+export default function DisplayThreads({ fetchComments, postThreads, users, id }) {
 
   const [errorText, setErrorText] = useState(null);
 
   useEffect(() => {
-    fetchComments()
+    fetchComments();
   }, [id]);
 
   if (!postThreads && !errorText) return null;
-  if (errorText) return <p>{errorText}</p>;
+  if (errorText) return <p className="error-text" id="commentErrorText">{errorText}</p>;
 
   return (
     <>
-      <h1>Comments</h1>
-      <ul>
+      <h1 className="comments-header" id="commentsHeader">Comments</h1>
+      <ul className="comments-list" id={`commentsList-${id}`}>
         {postThreads.map((thread) => {
           const user = users.find((u) => u.id === thread.user_id);
           const createdAtDate = new Date(thread.created_at);
           const formattedDate = createdAtDate.toLocaleString();
 
           return (
-            <li key={thread.id}>
-            
-              <strong>{user && user.username}</strong> - {formattedDate}
+            <li className="comment-item" id={`commentItem`} key={thread.id}>
+              <strong className="comment-user" id={`commentUser`}>{user ? user.username : "Unknown User"}</strong>
+              <span className="comment-date" id={`commentDate`}> - {formattedDate}</span>
               <br />
-              {thread.comment}
+              <p className="comment-text" id={`commentText`}>{thread.comment}</p>
             </li>
           );
         })}

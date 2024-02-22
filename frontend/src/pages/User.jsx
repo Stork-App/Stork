@@ -18,7 +18,7 @@ export default function UserPage() {
   const [userAvgs, setUserAverages] = useState([]);
   const [editingLog, setEditingLog] = useState(null);
   const [showLogForm, setShowLogForm] = useState(false);
-
+console.log(userAvgs)
 console.log(currentUser)
   const { id } = useParams();
   const isCurrentUserProfile = currentUser && currentUser.id === Number(id);
@@ -113,28 +113,49 @@ console.log(currentUser)
     }
 };
 
-  
   return <>
     
     <h1>{profileUsername}</h1>
-    { !!isCurrentUserProfile && <button onClick={handleLogout}>Log Out</button> }
-    <p>If the user had any data, here it would be</p>
-    <p>Fake Bio or something</p>
+    
+    <h1 className="symptom-stats">Your Symptom Stats!</h1>
 
-    {/* user averages functionality */}
-    <h1>Your Symptom Stats!</h1>
-    <h3>Mood: {userAvgs.mood}</h3>
-    <h3>Abdominal Pain: {userAvgs.abd_pain}</h3>
-    <h3>Back Pain: {userAvgs.back_pain}</h3>
-    <h3>Nausea: {userAvgs.nausea}</h3>
-    <h3>Fatigue: {userAvgs.fatigue}</h3>
-    {/* user averages functionality */}
+    <div class="stats-container">
+    <div class="stat-card mood">
+        <h2>Mood</h2>
+        <div class="stat-circle">
+          <span>{userAvgs.mood }</span>
+        </div>
+    </div>
+    <div class="stat-card abdominal-pain">
+        <h2>Abdominal Pain</h2>
+        <div class="stat-circle">
+            <span>{userAvgs.abd_pain}</span>
+        </div>
+      </div>
+      <div class="stat-card back-pain">
+        <h2>Back Pain</h2>
+        <div class="stat-circle">
+            <span>{userAvgs.back_pain}</span>
+        </div>
+      </div>
+      <div class="stat-card nausea">
+        <h2>Nausea</h2>
+        <div class="stat-circle">
+            <span>{userAvgs.nausea}</span>
+        </div>
+      </div>
+      <div class="stat-card abdominal-pain">
+        <h2>Fatigue</h2>
+        <div class="stat-circle">
+            <span>{userAvgs.fatigue}</span>
+        </div>
+      </div>
+      
+      
+      
+   
+</div>
 
-
-    {
-      !!isCurrentUserProfile
-        && <UpdateUsernameForm currentUser={currentUser} setCurrentUser={setCurrentUser}/>
-    }
 
     {showLogForm && <LogForm currentUser={currentUser} updateLogs={updateLogs} editingLog={editingLog} setShowLogForm={setShowLogForm}/>  }
    
@@ -148,7 +169,6 @@ console.log(currentUser)
           <th>Nausea</th>
           <th>Fatigue</th>
           <th>Weeks</th>
-          <th>Created At</th>
           <th>Actions</th>
         </tr>
       </thead>
@@ -161,7 +181,7 @@ console.log(currentUser)
             <td>{entry.nausea}</td>
             <td>{entry.fatigue}</td>
             <td>{entry.weeks}</td>
-            <td>{new Date(entry.created_at).toLocaleTimeString()}</td>
+          
             <td>
 
               {(index === 0) ? (

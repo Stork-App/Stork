@@ -18,8 +18,7 @@ export default function UserPage() {
   const [userAvgs, setUserAverages] = useState([]);
   const [editingLog, setEditingLog] = useState(null);
   const [showLogForm, setShowLogForm] = useState(false);
-console.log(userAvgs)
-console.log(currentUser)
+
   const { id } = useParams();
   const isCurrentUserProfile = currentUser && currentUser.id === Number(id);
 
@@ -150,9 +149,6 @@ console.log(currentUser)
             <span>{userAvgs.fatigue}</span>
         </div>
       </div>
-      
-      
-      
    
 </div>
 

@@ -30,6 +30,12 @@ export const getAvgLogs = async(id) => {
   console.log(avgs)
   return avgs || [];
 }
+
+export const getAvgBySortedWeek = async(id) => {
+  const [avgbyweek] = await fetchHandler(`${baseUrl}/avgbyweek/user/${id}`);
+  console.log(avgbyweek)
+  return avgbyweek || [];
+}
 // export const updateUsername = async ({ id, username }) => (
 //   fetchHandler(`${baseUrl}/${id}`, getPatchOptions({ id, username }))
 // );

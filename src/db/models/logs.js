@@ -27,6 +27,13 @@ class Logs {
         return rows;
     }
 
+  static async getAvgBySortedWeek (user_id) {
+    const query = `SELECT ROUND(AVG(mood)) as avg_mood, ROUND(AVG(abd_pain)) as avg_abd, ROUND(AVG(back_pain)) as avg_back, ROUND(AVG(fatigue)) as avg_fatigue, Round(AVG(nausea)) as avg_nausea, weeks from logs where user_id = ? group by weeks ORDER by weeks ASC`;
+    const args = [user_id];
+    const { rows } = await knex.raw(query, args);
+    return rows;
+  }
+
   
   static async update(mood, abd_pain, back_pain, nausea, fatigue, weeks, logId, user_id) {
     const query = "UPDATE logs SET mood = ?, abd_pain = ?, back_pain = ?, nausea = ?, fatigue = ?, weeks = ? WHERE id = ? AND user_id = ? RETURNING *;";

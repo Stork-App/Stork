@@ -7,12 +7,7 @@ export default function HomeFeatures() {
     <>
       <section id="features-section">
         <section class="features-content">
-          <h3 class="features-heading">What Features do we provide?</h3>
-          <p class="features-description">
-            By bridging the communication gap between patients and healthcare
-            providers, Stork facilitates more informed and accurate symptom
-            tracking while their pregnancy progresses.
-          </p>
+          <h3 class="features-heading">What Features Do We Provide?</h3>
         </section>
         
         <section class="feature-items">

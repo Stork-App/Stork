@@ -75,7 +75,7 @@ export default function LogForm({ currentUser, updateLogs, setShowLogForm, editi
     <input type="range" min="0" max="100" id="fatigue" name = "fatigue"/>
     <br></br>
     <label htmlFor="weeks">How far along  are you? </label>
-    <select id="weeks" name="weeks"required>
+    <select id="weeks" name="weeks">
       <option value="">Select...</option>
       <option value="2">2 Weeks</option>
       <option value="3">3 Weeks</option>

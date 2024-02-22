@@ -3,6 +3,7 @@ import { getAllPosts } from "../adapters/post-adapter";
 import { getAllUsers } from "../adapters/user-adapter";
 import DisplayPosts from "../components/ForumComponents/DisplayPosts";
 import PostForm from "../components/ForumComponents/PostForm";
+import '../ForumPage.css'
 
 export default function ForumPage() {
     const [posts, setPosts] = useState([]);
@@ -20,7 +21,8 @@ export default function ForumPage() {
    
 
     return <>
-    <DisplayPosts fetchPosts={displayPostFunction} posts={posts} users={users}/>
     <PostForm fetchPosts={displayPostFunction}/>
+    <DisplayPosts fetchPosts={displayPostFunction} posts={posts} users={users}/>
+
     </>
 }

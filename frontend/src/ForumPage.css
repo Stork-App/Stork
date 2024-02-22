@@ -1,0 +1,89 @@
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1#postsHeader {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+ul.postsList {
+  list-style: none;
+  padding: 0;
+}
+
+li.postItem {
+  border-bottom: 1px solid #ddd;
+  padding: 15px 0;
+  margin-bottom: 20px; 
+  
+}
+
+strong.postUser {
+  color: #0056b3; 
+  font-weight: bold;
+}
+
+span.postDate {
+  color: #666;
+  font-size: 0.85em;
+}
+
+a.PostLink { 
+  color: #0056b3;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+p.postDescription {
+  color: #333;
+  margin-top: 10px;
+}
+
+form#postForm {
+  margin-top: 20px;
+}
+
+div.formField {
+  margin-bottom: 15px;
+}
+
+label.formLabel {
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+textarea.formInput, input.formInput { 
+  width: 100%;
+  padding: 10px; 
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box; 
+}
+
+button.submitButton {
+  background-color: #0056b3; 
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s; 
+}
+
+button.submitButton:hover {
+  background-color: #003d82;
+}
+
+p.errorText {
+  color: red;
+  margin-top: 10px;
+}

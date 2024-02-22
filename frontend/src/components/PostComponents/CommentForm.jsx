@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import CurrentUserContext from "../../contexts/current-user-context";
 import { createThread } from "../../adapters/thread-adapter";
 
-export default function CommentForm({fetchComments}) {
+export default function CommentForm({ fetchComments }) {
   const { id } = useParams();
   const { currentUser } = useContext(CurrentUserContext);
   const [errorText, setErrorText] = useState("");
@@ -26,8 +26,8 @@ export default function CommentForm({fetchComments}) {
         setErrorText("Error posting comment. Please try again.");
       } else {
         console.log("Comment posted successfully:", post);
-        event.target.reset()
-        fetchComments()
+        event.target.reset();
+        fetchComments();
       }
     } catch (err) {
       console.error("Unexpected error:", err);
@@ -36,17 +36,17 @@ export default function CommentForm({fetchComments}) {
   };
 
   if (!currentUser) {
-    return <p>Please log in to post comments.</p>;
+    return <p className="login-prompt" id="loginPrompt">Please log in to post comments.</p>;
   }
 
   return (
     <>
-      <form onSubmit={handleSubmit} aria-labelledby="input-text">
-        <label htmlFor="text">Comment:</label>
-        <textarea id="text" name="text" autoComplete="text" />
-        <button type="submit">Post</button>
+      <form onSubmit={handleSubmit} className="comment-form" id={`commentForm`} aria-labelledby="commentFormLabel">
+        <label htmlFor="text" className="comment-label" id="commentLabel">Comment:</label>
+        <textarea id="text" name="text" autoComplete="text" className="comment-textarea" />
+        <button type="submit" className="comment-submit-btn">Post</button>
       </form>
-      {errorText && <p style={{ color: "red" }}>{errorText}</p>}
+      {errorText && <p className="error-text" id="commentFormError" style={{ color: "red" }}>{errorText}</p>}
     </>
   );
 }

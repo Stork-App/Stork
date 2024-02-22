@@ -1,7 +1,7 @@
-body {
+ body {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  margin: 0;
-}
+  margin-top: 85px;
+} 
 
 input, label {
   display: block;
@@ -55,6 +55,23 @@ form {
 
 
 /** userspage **/
+
+.symptom-stats {
+  background-color:rgb(162, 76, 232);
+  color: white;
+  width: 40%;
+  border-radius: 12px;
+  text-align: center;
+  margin: auto;
+
+}
+.average-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
 .log-form-container {
   position: fixed;
   top: 50%; 
@@ -74,31 +91,100 @@ fieldset{
   display: flex;
   border: none;
 }
-.log-form-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); 
-  z-index: 9998;
-}
 
 
-table{
-  text-align: center;
-  width: 86%;
+table {
+  width: 89%; 
+  border-collapse: collapse; 
   margin: auto;
-  border-spacing: 0;
 }
 
-th{
-  border: 1px solid black;
-  background-color:rgb(217, 210, 233);
-  padding:7px;
-}
-td{
-  border-bottom: 1px solid black;
-  border-right: 1px solid black;
+th, td {
+  padding: 8px 15px; 
+  border: 1px solid #ddd;
+  text-align: center; 
 }
 
+th {
+  background-color: #6c6ee0;
+  color: white;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #f9f9f9; 
+}
+
+tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+.stats-container {
+  display: flex;
+  justify-content: space-around; 
+  padding: 20px;
+  margin-bottom: 88px;
+}
+
+.stat-card {
+  background-color: #fff; 
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  width: 140px; 
+  margin: 10px;
+  transition: transform 0.3s ease;
+}
+
+.stat-card h2 {
+  color: #666; 
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.stat-circle {
+  border-radius: 50%;
+  background-color: #f0f0f0; 
+  background-color: white;
+  color: #333; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  width: 100px;
+  margin: auto;
+}
+
+.stat-circle span {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.stat-card.mood {
+  border: 2px solid #85c1e9; 
+  background-color: #ebf5fb; 
+}
+
+.stat-card.abdominal-pain {
+  border: 2px solid #82e0aa;
+  background-color: #e8f8f5; 
+}
+
+.stat-card.back-pain {
+  border: 2px solid #3498db; /* Soft blue */
+  background-color: #ebf5fb; /* Very light blue background */
+}
+
+.stat-card.nausea {
+  border: 2px solid #f1c40f; /* Soft yellow */
+  background-color: #fef9e7; /* Very light yellow background */
+}
+
+.stat-card.fatigue {
+  border: 2px solid #9b59b6; /* Soft purple */
+  background-color: #f5eef8; /* Very light purple background */
+}
+.stat-card:hover {
+  transform: translateY(-5px); 
+}
+ 

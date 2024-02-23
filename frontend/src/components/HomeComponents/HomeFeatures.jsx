@@ -10,10 +10,9 @@ export default function HomeFeatures() {
   const [ref, inView] = useInView();
 
   const downAnimation = {
-    hidden: { y: 20, opacity: 0 },
+    hidden: { y: -20, opacity: 0 },
     visible: { y: 0, opacity: 1, transition: { duration: 1 } },
   };
-
 
   const leftAnimation = {
     hidden: { x: -20, opacity: 0 },
@@ -43,7 +42,7 @@ export default function HomeFeatures() {
         <motion.section className="feature-items" initial="hidden" animate={controls} variants={downAnimation}>
           <motion.section className="feature-item" variants={featureAnimation}>
             <motion.img className="feature-image-label" src={onPhone} />
-            <motion.h4 className="feature-title" variants={featureAnimation}>
+            <motion.h4 className="feature-title" variants={leftAnimation}>
               Complete A Daily Log
             </motion.h4>
             <motion.p variants={downAnimation}>
@@ -53,17 +52,17 @@ export default function HomeFeatures() {
 
           <motion.section className="feature-item" variants={featureAnimation}>
             <motion.img className="feature-image-label" src={selfAdvocacy} />
-            <motion.h4 className="feature-title" variants={featureAnimation}>
+            <motion.h4 className="feature-title" variants={leftAnimation}>
               Statistics for Self-Advocacy
             </motion.h4>
-            <motion.p variants={featureAnimation}>
+            <motion.p variants={downAnimation}>
               We understand how anxiety-inducing speaking up for yourself can be. That's why we created an easy-to-use data display model, your Stats page & Daily Log table. Studies show that self-advocacy can be more efficient when coupled with physical data.
             </motion.p>
           </motion.section>
 
           <motion.section className="feature-item" variants={featureAnimation}>
             <motion.img className="feature-image-label" src={forumImg} />
-            <motion.h4 className="feature-title" variants={featureAnimation}>
+            <motion.h4 className="feature-title" variants={leftAnimation}>
               Forum - Build Community!
             </motion.h4>
             <motion.p variants={downAnimation}>

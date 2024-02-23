@@ -19,6 +19,11 @@ export default function HomeArticles() {
     visible: { y: 0, opacity: 1, transition: { duration: 1 } },
   };
 
+  const downAnimation = {
+    hidden: { y: -20, opacity: 0 },
+    visible: { y: 0, opacity: 1, transition: { duration: 1 } },
+  };
+
   useEffect(() => {
     if (inViewAdvocacy) {
       controlsAdvocacy.start('visible');
@@ -55,8 +60,8 @@ export default function HomeArticles() {
             <a href="https://d-scholarship.pitt.edu/40428/" target="_blank" rel="noopener noreferrer" className="learn-more-btn">Read More</a>
           </motion.section>
 
-          <motion.section className="article-item" ref={refChestPain} initial="hidden" animate={controlsChestPain} variants={articleAnimation}>
-            <motion.img className="article-image-label" src={chestPainImg} variants={articleAnimation} />
+          <motion.section className="article-item" ref={refChestPain} initial="hidden" animate={controlsChestPain} variants={downAnimation}>
+            <motion.img className="article-image-label" src={chestPainImg} variants={downAnimation} />
             <p><b>“Is self-advocacy universally achievable for patients? the experiences of Australian women with cardiac disease in pregnancy and postpartum.”</b></p>
             <p className="article-metadata">International Journal of Qualitative Studies on Health and Well-Being, vol. 18, no. 1, 23 Feb. 2023</p>
             <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9970247/" target="_blank" rel="noopener noreferrer" className="learn-more-btn">Read More</a>

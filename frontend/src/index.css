@@ -92,6 +92,13 @@ fieldset{
   border: none;
 }
 
+.close-popup-btn{
+  position: fixed;
+  top: 0;
+  right: 0;
+
+}
+
 
 table {
   width: 89%; 
@@ -187,4 +194,24 @@ tbody tr:hover {
 .stat-card:hover {
   transform: translateY(-5px); 
 }
- 
+.user-banner {
+  background-color: #6c7ae0; /* Your primary color */
+  color: white;
+  padding: 20px;
+  text-align: center;
+  border-radius: 8px;
+  margin: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display:flex;
+  justify-content: center;
+}
+
+.user-banner h1 {
+  font-size: 2em; /* Larger font size for the user name */
+  margin-bottom: 0.5em;
+}
+
+.user-banner p {
+  font-size: 1em;
+  margin-bottom: 1em;
+}

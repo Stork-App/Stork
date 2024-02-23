@@ -52,6 +52,12 @@ export default function LogForm({
     return value.toString();
   };
 
+  const closePopUp = () => {
+
+    setShowLogForm(false);
+    //setEditingLog(null);
+  }
+
   return (
     <form
       className="log-form-container"
@@ -179,6 +185,7 @@ export default function LogForm({
       <br></br>
       <input type="hidden" name="user_id" value={currentUser.id} />
       <button>Submit</button>
+      <button onClick={closePopUp} className="close-popup-btn">close</button>
       <br></br>
     </form>
   );

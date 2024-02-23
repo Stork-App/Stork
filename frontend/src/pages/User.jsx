@@ -113,9 +113,16 @@ export default function UserPage() {
 };
 
   return <>
-    
-    <h1>{profileUsername}</h1>
-    
+  <header class="user-banner">
+  <div class="banner-content">
+    <div class="user-details">
+          <h1>Welcome back, {profileUsername}!</h1>
+      <p>Here's a snapshot of your recent activity. Keep up the great work!</p>
+   
+    </div>
+  </div>
+</header>
+
     <h1 className="symptom-stats">Your Symptom Stats!</h1>
 
     <div class="stats-container">

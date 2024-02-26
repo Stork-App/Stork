@@ -53,7 +53,7 @@ export default function MenuAppBar() {
   return (
     <Box sx={{ 
     }}>
-      <AppBar  style={{position: 'fixed', color: 'white', display: 'flex', flexGrow: 1, alignItems: 'center', justifyContent: 'center', borderRadius: 40, background: '#9A3BE5', boxShadow: 10 }}>
+      <AppBar style={{ position: 'fixed', color: 'white', display: 'flex', flexGrow: 1, alignItems: 'center', justifyContent: 'center', borderRadius: 0, background: '#b55cf0', boxShadow: 10  }}>
         <Toolbar sx={{ width: '90%', justifyContent: 'center', alignItems: 'center' }}>
           {/* Left section */}
           <div style={{ display: 'flex', alignItems: "flex-start"}}>

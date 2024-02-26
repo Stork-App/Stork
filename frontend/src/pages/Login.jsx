@@ -50,7 +50,7 @@ export default function LoginPage() {
 
   return (
     <ThemeProvider theme={defaultTheme}>
-      <Grid container component="main" sx={{ height: '100vh' }}>
+      <Grid container component="main" sx={{ height: '100vh', mt: 9 }}>
         <CssBaseline />
         <Grid
           item

@@ -50,7 +50,7 @@ function SignUpPage() {
 
   return (
     <ThemeProvider theme={createTheme()}>
-      <Grid container component="main" sx={{ height: '100vh' }}>
+      <Grid container component="main" sx={{ height: '100vh', mt: 9 }}>
         <CssBaseline />
         <Grid
           item

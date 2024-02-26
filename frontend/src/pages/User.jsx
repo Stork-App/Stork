@@ -9,6 +9,8 @@ import LogForm from "../components/LogForm";
 import { getLogs, updateLog } from "../adapters/log-adapter";
 // import Graph from "../components/Graph";
 
+
+
 export default function UserPage() {
  const navigate = useNavigate();
   const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
@@ -113,10 +115,12 @@ export default function UserPage() {
 };
 
   return <>
-    
-    <h1>Welcome back, {profileUsername}!</h1>
-    
+
+      <h1 class="banner">Welcome back, {profileUsername}!</h1>
+ 
     <h1 className="symptom-stats">Your Symptom Stats!</h1>
+
+    <p className="average-description">This is where you will see an accumulation of all of your entered data. By providing your practioner with an accumulation of your data, you can narrow down which symptoms may be the biggest cause for concern. Use these numbers in your appointments to accurate reflect your experiences and lead to further investigation.</p>
 
     <div className="stats-container">
     <div className="stat-card mood">

@@ -319,3 +319,32 @@ button:hover {
   background-color: #297fb8;
 }
 
+
+@media (max-width: 768px) {
+  #home-section1,
+  #mission,
+  #features-section,
+  #research-articles-section {
+    text-align: center;
+  }
+
+  .mission-details,
+  .feature-items,
+  .article-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .mission-benefit,
+  .information-study,
+  .under-researched-areas,
+  .repeat-benefit,
+  .feature-item,
+  .article-item {
+    flex: 0 1 calc(100% - 40px); /* Adjust width and margin as needed */
+    flex-shrink: 0;
+    margin: 10px; /* Adjust margin as needed */
+    width: auto;
+  }
+}

@@ -114,38 +114,38 @@ export default function UserPage() {
 
   return <>
     
-    <h1>{profileUsername}</h1>
+    <h1>Welcome back, {profileUsername}!</h1>
     
     <h1 className="symptom-stats">Your Symptom Stats!</h1>
 
-    <div class="stats-container">
-    <div class="stat-card mood">
+    <div className="stats-container">
+    <div className="stat-card mood">
         <h2>Mood</h2>
-        <div class="stat-circle">
+        <div className="stat-circle">
           <span>{userAvgs.mood }</span>
         </div>
     </div>
-    <div class="stat-card abdominal-pain">
+    <div className="stat-card abdominal-pain">
         <h2>Abdominal Pain</h2>
-        <div class="stat-circle">
+        <div className="stat-circle">
             <span>{userAvgs.abd_pain}</span>
         </div>
       </div>
-      <div class="stat-card back-pain">
+      <div className="stat-card back-pain">
         <h2>Back Pain</h2>
-        <div class="stat-circle">
+        <div className="stat-circle">
             <span>{userAvgs.back_pain}</span>
         </div>
       </div>
-      <div class="stat-card nausea">
+      <div className="stat-card nausea">
         <h2>Nausea</h2>
-        <div class="stat-circle">
+        <div className="stat-circle">
             <span>{userAvgs.nausea}</span>
         </div>
       </div>
-      <div class="stat-card abdominal-pain">
+      <div className="stat-card abdominal-pain">
         <h2>Fatigue</h2>
-        <div class="stat-circle">
+        <div className="stat-circle">
             <span>{userAvgs.fatigue}</span>
         </div>
       </div>

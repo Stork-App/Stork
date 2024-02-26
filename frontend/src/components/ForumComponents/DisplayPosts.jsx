@@ -9,11 +9,14 @@ export default function DisplayPosts({ fetchPosts, posts, users }) {
     fetchPosts();
   }, []);
 
+  // Sort posts by date in descending order (most recent first)
+  const sortedPosts = posts.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+
   return (
     <>
       <h1 id="postsHeader">Posts</h1>
       <ul className="postsList">
-        {posts.map((post) => {
+        {sortedPosts.map((post) => {
           const user = users.find((u) => u.id === post.user_id);
 
           const createdAtDate = new Date(post.created_at);

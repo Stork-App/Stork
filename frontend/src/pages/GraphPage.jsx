@@ -20,11 +20,10 @@ export default function GraphPage() {
   },[currentUser])
 
   return <>
+    <h1 className="symptom-stats">Your Symptom Stats Graph!</h1>
     <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <h1> Your Stats</h1>
-    <Graph userLogs = {userLogs} />
+    <div className="graph-comp">
+      <Graph userLogs = {userLogs} />
+      </div>
   </>
 };

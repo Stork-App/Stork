@@ -34,6 +34,7 @@ export default function Graph( { userLogs }) {
                 borderColor: 'rgb(248, 140, 61)',
                 backgroundColor: 'rgba(248, 140, 61, 0.5)',
                 pointHoverRadius: 15
+
             }
         ,]
     };

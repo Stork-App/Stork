@@ -1,23 +1,28 @@
 .fade-in {
-  opacity: 0; /* Start with an opacity of 0 */
-  animation: fadeInAnimation 1s ease-in forwards; /* Apply the animation */
+  opacity: 0; 
+  animation: fadeInAnimation 1s ease-in forwards; 
 }
 
 @keyframes fadeInAnimation {
   from {
-    opacity: 0; /* Start with an opacity of 0 */
+    opacity: 0; 
   }
   to {
-    opacity: 1; /* End with an opacity of 1 */
+    opacity: 1; 
   }
 }
 
 #home-section1 {
+  height: 500px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 50px;
   flex-wrap: wrap;
+  background-image: url('./components/images/background.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+
 }
 
 .home-section1-left {
@@ -50,7 +55,7 @@
 }
 
 .learn-more-btn:hover {
-  background-color: #a859d5;
+  background-color: #9e4ecc;
 }
 
 #home-header-image {
@@ -68,12 +73,14 @@
 /* -------------------------------------------------------------------------- */
 
 #mission {
-  padding-top: 60px;
+  background: linear-gradient(to bottom, rgba(255, 192, 203, 0.5), transparent);
+  padding: 20px;
 }
 
 .mission-content {
+  /* display: flex; */
   text-align: center;
-  max-width: 600px;
+  max-width: 500px;
   margin: 0 auto;
 }
 
@@ -82,22 +89,22 @@
 }
 .mission-details {
   display: flex;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   justify-content: space-around;
+  margin-bottom: 50px;
 }
 
 .mission-benefit,
 .information-study,
 .under-researched-areas,
 .repeat-benefit {
-  flex: 0 1 48%; 
+  flex: 0 1 calc(50% - 20px); /* Adjust width and margin as needed */
+  margin: 10px; /* Adjust margin as needed */ 
 }
 
-.mission-benefit{
 
-}
-
-#mission-image {
+/* #mission-image {
+  height: 100px;
   flex: 1;
   text-align: center;
 }
@@ -107,7 +114,44 @@
   height: auto;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+} */
+
+.mission-benefit {
+  background: linear-gradient(to bottom, rgba(255, 192, 203, 0.5), transparent);
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
 }
+
+.information-study {
+  background: linear-gradient(to bottom, rgba(135, 206, 235, 0.5), transparent);
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.under-researched-areas {
+  background: linear-gradient(to bottom, rgba(255, 255, 0, 0.5), transparent);
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+
+}
+
+.repeat-benefit {
+  background: linear-gradient(to bottom, rgba(127, 255, 0, 0.5), transparent);
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+
+}
+
+.mission-detail {
+  display: flex;
+  flex-direction: column;
+}
+
 
 .home-buttons{
   background-color: #9A3BE5;
@@ -135,9 +179,9 @@ body {
   padding: 0;
 } */
 
-section {
+/* section {
   margin-bottom: 20px;
-}
+} */
 
 h3 {
   color: #333;
@@ -150,9 +194,12 @@ p {
 
 #features-section {
   text-align: center;
+  background-color: #eed6ff;
+  height: 700px;
 }
 
 .features-content {
+  padding-top: 30px;
   max-width: 600px;
   margin: 0 auto;
 }
@@ -233,6 +280,10 @@ button:hover {
 .article-image-label {
   font-size: 1.2em;
   color: #777;
+  max-width: 75%;
+  height: auto;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .article-metadata {
@@ -240,6 +291,17 @@ button:hover {
   margin-top: 10px;
 }
 
+.article-item:nth-child(1) {
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.5), rgba(255, 99, 71, 0.5));
+}
+
+.article-item:nth-child(2) {
+  background: linear-gradient(45deg, rgba(135, 206, 235, 0.5), rgba(255, 160, 122, 0.5));
+}
+
+.article-item:nth-child(3) {
+  background: linear-gradient(90deg, rgba(127, 255, 0, 0.5), rgba(255, 105, 180, 0.5));
+}
 .read-more-btn {
   padding: 10px 20px;
   font-size: 1em;

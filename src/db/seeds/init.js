@@ -6,10 +6,10 @@ const User = require('../models/user');
  */
 exports.seed = async (knex) => {
   await knex('users').del()
-  await User.create('cool_cat', 'coolcat@gmail.com', '1234');
-  await User.create('l33t-guy', 'l33t-guy@gmail.com', '1234');
-  await User.create('wowow', 'wowow@gmail.com', '1234');
+  await User.create('jane', 'coolcat@gmail.com', '1234');
+  await User.create('lily', 'l33t-guy@gmail.com', '1234');
+  await User.create('amanda', 'wowow@gmail.com', '1234');
   await User.create('rachel', 'rachel@gmail.com', 'abc');
   await User.create('kate', 'kate@gmail.com', 'abc');
-  await User.create('cookie', 'cookie@gmail.com', 'abc');
+  await User.create('catherine', 'cookie@gmail.com', 'abc');
 };

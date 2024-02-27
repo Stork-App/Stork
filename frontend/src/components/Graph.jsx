@@ -16,8 +16,9 @@ export default function Graph( { userLogs }) {
                 label: 'Mood',
                 data: userLogs.map(row => row.avg_mood),
                 tension: 0.4,
-                borderColor: 'rgb(248, 140, 61)',
-                backgroundColor: 'rgba(248, 140, 61, 0.5)'
+                borderColor: 'rgb(154, 59, 229)',
+                backgroundColor: 'rgba(154, 59, 229, 0.5)',
+                pointHoverRadius: 15
             }
         ]
     };
@@ -31,7 +32,9 @@ export default function Graph( { userLogs }) {
                 data: userLogs.map(row => row.avg_abd),
                 tension: 0.4,
                 borderColor: 'rgb(248, 140, 61)',
-                backgroundColor: 'rgba(248, 140, 61, 0.5)'
+                backgroundColor: 'rgba(248, 140, 61, 0.5)',
+                pointHoverRadius: 15
+
             }
         ,]
     };
@@ -43,7 +46,8 @@ export default function Graph( { userLogs }) {
                 fill: true,
                 label: 'Back Pain',
                 data: userLogs.map(row => row.avg_back),
-                tension: 0.4
+                tension: 0.4,
+                pointHoverRadius: 15
             }
         ,]
     };
@@ -55,7 +59,10 @@ export default function Graph( { userLogs }) {
                 fill: true,
                 label: 'Nausea',
                 data: userLogs.map(row => row.avg_nausea),
-                tension: 0.4
+                borderColor: 'rgb(44,185,167)',
+                backgroundColor: 'rgba(44,185,167, 0.5)',
+                tension: 0.4,
+                pointHoverRadius: 15
             }
         ,]
     };
@@ -67,7 +74,10 @@ export default function Graph( { userLogs }) {
                 fill: true,
                 label: 'Fatigue',
                 data: userLogs.map(row => row.avg_fatigue),
-                tension: 0.3
+                borderColor: 'rgb(31,148,165)',
+                backgroundColor: 'rgba(31,148,165, 0.5)',
+                tension: 0.4,
+                pointHoverRadius: 15
             }
         ,]
     };

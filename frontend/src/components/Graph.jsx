@@ -3,10 +3,19 @@ import { Line } from 'react-chartjs-2';
 export default function Graph( { userLogs }) {
     const options = {
         responsive: true,
-        // title: {
-        //     display: true,
-        //     text: (ctx) => 'Point Style: ' + ctx.chart.data.datasets[0],
-        //   },
+        scales: {
+            x: {
+              title: {
+                display: true,
+                text: 'Weeks',
+              },
+            },
+            y: {
+                ticks: {
+                  stepSize: 1, 
+                },
+              },
+          },
     }
     const moodData = {
         labels: userLogs.map(row => row.weeks),
@@ -16,8 +25,8 @@ export default function Graph( { userLogs }) {
                 label: 'Mood',
                 data: userLogs.map(row => row.avg_mood),
                 tension: 0.4,
-                borderColor: 'rgb(154, 59, 229)',
-                backgroundColor: 'rgba(154, 59, 229, 0.5)',
+                borderColor: 'rgb(248, 140, 61)',
+                backgroundColor: 'rgba(248, 140, 61, 0.5)',
                 pointHoverRadius: 15
             }
         ]
@@ -31,8 +40,8 @@ export default function Graph( { userLogs }) {
                 label: 'Abdominal Pain',
                 data: userLogs.map(row => row.avg_abd),
                 tension: 0.4,
-                borderColor: 'rgb(248, 140, 61)',
-                backgroundColor: 'rgba(248, 140, 61, 0.5)',
+                borderColor: 'rgb(154, 59, 229)',
+                backgroundColor: 'rgba(154, 59, 229, 0.5)',
                 pointHoverRadius: 15
 
             }

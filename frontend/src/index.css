@@ -189,9 +189,12 @@ tbody tr:hover {
 }
 
 .graph-comp {
-  width: 80%;
+  width: 60%;
   margin-left: auto;
   margin-right: auto;
+}
 
+canvas {
+  padding: 20px
 }
  

@@ -35,7 +35,7 @@ function SignUpPage() {
       if (error) throw new Error(error.message);
 
       setCurrentUser(user);
-      navigate(`/users/${user.id}`);
+      navigate("/");
     } catch (error) {
       setErrorText("Error signing up. Please try again.");
     }
@@ -50,7 +50,7 @@ function SignUpPage() {
 
   return (
     <ThemeProvider theme={createTheme()}>
-      <Grid container component="main" sx={{ height: '100vh', mt: 9 }}>
+      <Grid container component="main" sx={{ height: '100vh' }}>
         <CssBaseline />
         <Grid
           item

@@ -113,8 +113,16 @@ export default function UserPage() {
 };
 
   return <>
-    
-    <h1>Welcome back, {profileUsername}!</h1>
+    <div className="userpage" >
+  <header class="user-banner">
+  <div class="banner-content">
+    <div class="user-details">
+          <h1>Welcome back, {profileUsername}!</h1>
+      <p>Here's a snapshot of your recent activity. Keep up the great work!</p>
+   
+    </div>
+  </div>
+</header>
     
     <h1 className="symptom-stats">Your Symptom Stats!</h1>
 
@@ -153,7 +161,7 @@ export default function UserPage() {
 </div>
 
 
-    {showLogForm && <LogForm currentUser={currentUser} updateLogs={updateLogs} editingLog={editingLog} setShowLogForm={setShowLogForm}/>  }
+    {showLogForm && <LogForm currentUser={currentUser} updateLogs={updateLogs} editingLog={editingLog} setShowLogForm={setShowLogForm}  setUserAverages={setUserAverages}/>  }
    
    {/* user table functionality */}
     <table>
@@ -190,6 +198,7 @@ export default function UserPage() {
           </tr>
         ))}
       </tbody>
-    </table>
+      </table>
+      </div>
   </>;
 }

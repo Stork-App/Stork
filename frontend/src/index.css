@@ -57,12 +57,14 @@ form {
 /** userspage **/
 
 .symptom-stats {
-  background-color:rgb(162, 76, 232);
+  color: rgb(116, 111, 111);
+  /*background-color:rgb(162, 76, 232);*/
   color: white;
   width: 40%;
   border-radius: 12px;
   text-align: center;
   margin: auto;
+  color: gray;
 
 }
 .average-container{
@@ -78,18 +80,30 @@ form {
   left: 50%; 
   transform: translate(-50%, -50%); 
   background-color: rgba(255, 255, 255, 0.9); 
-  padding: 20px; 
+  padding: 30px; 
   border-radius: 8px; 
   z-index: 9999; 
+  border: 4px solid whitesmoke;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   border: 4px solid whitesmoke;
   box-shadow:8px 5px 2px rgb(199, 199, 199);
+    height: 84vh; width: 80%; /* Set a base width */
+    max-width: 500px; /* Maximum width to ensure it doesn't get too wide on larger screens */
+    box-sizing: border-box; /* Ensure padding is included in the width */
+    overflow-y: auto; 
 }
+
 fieldset{
   display: flex;
   border: none;
+}
+
+.close-popup-btn{
+  position: fixed;
+  top: 0;
+  right: 0;
+
 }
 
 
@@ -178,14 +192,39 @@ tbody tr:hover {
 .stat-card.nausea {
   border: 2px solid #f1c40f; /* Soft yellow */
   background-color: #fef9e7; /* Very light yellow background */
+  
 }
 
 .stat-card.fatigue {
   border: 2px solid #9b59b6; /* Soft purple */
   background-color: #f5eef8; /* Very light purple background */
+  background-color: #9ca4e7; /* Your primary color */
+
 }
 .stat-card:hover {
   transform: translateY(-5px); 
+}
+.user-banner {
+  background-color: #9ca4e7; /* Your primary color */
+  color: white;
+  padding: 20px;
+  text-align: center;
+  border-radius: 8px;
+  margin: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display:flex;
+  justify-content: center;
+  
+}
+
+.user-banner h1 {
+  font-size: 2em;
+  margin-bottom: 0.5em;
+}
+
+.user-banner p {
+  font-size: 1em;
+  margin-bottom: 1em;
 }
 
 .graph-comp {
@@ -195,3 +234,93 @@ tbody tr:hover {
 
 }
  
+/* Adjustments for Tablet */
+@media (max-width: 1024px) {
+  .stats-container, .average-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .stat-card {
+    width: 80%; /* Adjust the width to fit better on smaller screens */
+    margin: 10px 0; /* Add vertical spacing */
+  }
+
+  .log-form-container {
+    width: 50%;
+    height: auto; 
+    padding: 20px; 
+    
+  }
+
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+
+  thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  tr {
+    border: 1px solid #ccc;
+    margin-bottom: 5px;
+  }
+
+  td {
+    border: none;
+    position: relative;
+    padding-left: 50%;
+    text-align: right;
+  }
+
+  td:before {
+    position: absolute;
+    left: 10px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+    text-align: left;
+    font-weight: bold;
+  }
+
+  td:nth-of-type(1):before { content: "Mood"; }
+  td:nth-of-type(2):before { content: "Abd Pain"; }
+  td:nth-of-type(3):before { content: "Back Pain"; }
+  td:nth-of-type(4):before { content: "Nausea"; }
+  td:nth-of-type(5):before { content: "Fatigue"; }
+  td:nth-of-type(6):before { content: "Weeks"; }
+
+}
+
+/* Adjustments for Mobile */
+@media (max-width: 768px) {
+
+  .log-form-container {
+    height: 323px; 
+    padding: 20px; 
+    
+  }
+  
+  header, .user-banner, .stats-container {
+    flex-direction: column;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .user-banner, .stat-card, .log-form-container {
+    width: 90%; /* Adjust the width for mobile devices */
+  }
+
+  .stat-card {
+    margin: 10px 0; /* Adjust margin for vertical layout */
+  }
+
+  .user-banner {
+    margin: 10px 0; /* Adjust margin for consistency */
+  }
+}

@@ -113,6 +113,7 @@ export default function UserPage() {
 };
 
   return <>
+    <div className="userpage" >
   <header class="user-banner">
   <div class="banner-content">
     <div class="user-details">
@@ -160,7 +161,7 @@ export default function UserPage() {
 </div>
 
 
-    {showLogForm && <LogForm currentUser={currentUser} updateLogs={updateLogs} editingLog={editingLog} setShowLogForm={setShowLogForm}/>  }
+    {showLogForm && <LogForm currentUser={currentUser} updateLogs={updateLogs} editingLog={editingLog} setShowLogForm={setShowLogForm}  setUserAverages={setUserAverages}/>  }
    
    {/* user table functionality */}
     <table>
@@ -197,6 +198,7 @@ export default function UserPage() {
           </tr>
         ))}
       </tbody>
-    </table>
+      </table>
+      </div>
   </>;
 }

@@ -1,13 +1,15 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Slider from "@mui/material/Slider";
-import { createLog, updateLog } from "../adapters/log-adapter";
+import { createLog, updateLog, getAvgLogs } from "../adapters/log-adapter";
 
 export default function LogForm({
   currentUser,
   updateLogs,
   setShowLogForm,
   editingLog,
+  setUserAverages,
+
 }) {
   const setRangeValues = (sliderInput) => {
     if (sliderInput == 1) {
@@ -34,18 +36,24 @@ export default function LogForm({
     obj.fatigue = setRangeValues(obj.fatigue);
     obj.weeks = Number(obj.weeks);
     obj.user_id = Number(obj.user_id);
-
-    if (editingLog) {
-      await updateLog(editingLog.id, obj, currentUser.id);
-      updateLogs();
-      setShowLogForm(false);
-      setEditingLog(null);
+   
+    try {
+      if (editingLog) {
+        await updateLog(editingLog.id, obj, currentUser.id);
+      } else {
+        await createLog(obj);
+      }
+      await updateLogs();
+      const [averages] = await getAvgLogs(currentUser.id);
+      setUserAverages(averages);
+    } catch (error) {
+      console.error("Error handling the log form:", error);
+      // Optionally, handle the error (e.g., show an error message)
     }
-
-    await createLog(obj);
-    updateLogs();
+  
     setShowLogForm(false);
     event.target.reset();
+
   };
 
   const valueText = (value) => {

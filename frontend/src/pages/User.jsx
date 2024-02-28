@@ -117,14 +117,16 @@ export default function UserPage() {
   <header class="user-banner">
   <div class="banner-content">
     <div class="user-details">
-          <h1>Welcome back, {profileUsername}!</h1>
+          <h1>Welcome Back, {profileUsername}!</h1>
       <p>Here's a snapshot of your recent activity. Keep up the great work!</p>
    
     </div>
   </div>
 </header>
     
-    <h1 className="symptom-stats">Your Symptom Stats!</h1>
+    <h1 className="symptom-stats">Your Symptom Stats:</h1>
+
+    <p className="average-description">This is where you will see an accumulation of all of your entered data. By providing your practioner with an accumulation of your data, you can narrow down which symptoms may be the biggest cause for concern. Use these numbers in your appointments to accurate reflect your experiences and lead to further investigation.</p>
 
     <div className="stats-container">
     <div className="stat-card mood">
@@ -164,6 +166,8 @@ export default function UserPage() {
     {showLogForm && <LogForm currentUser={currentUser} updateLogs={updateLogs} editingLog={editingLog} setShowLogForm={setShowLogForm}  setUserAverages={setUserAverages}/>  }
    
    {/* user table functionality */}
+   <h1 className="total-logs-title">Your Past Logs:</h1>
+   <p className="logs-table-desc">View all your of your previously entered logs here! You can make changes to your most recently entered log by pressing the edit button!</p>
     <table>
       <thead>
         <tr>

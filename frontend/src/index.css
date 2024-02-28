@@ -57,18 +57,18 @@ form {
 /** userspage **/
 
 .symptom-stats {
-  color: rgb(116, 111, 111);
+  color: black;
   /*background-color:rgb(162, 76, 232);*/
   color: white;
   width: 40%;
   border-radius: 12px;
   text-align: center;
   margin: auto;
-  color: gray;
+  color: black;
 
 }
 .total-logs-title {
-  color: rgb(116, 111, 111);
+  color: black;
   /*background-color:rgb(162, 76, 232);*/
   color: white;
   width: 40%;
@@ -76,7 +76,7 @@ form {
   text-align: center;
   margin: 0 auto;
   margin-bottom: 3%;
-  color: gray;
+  color: black;
 
 }
 .average-container{
@@ -203,11 +203,14 @@ tbody tr:hover {
   display: none;
   position: absolute;
   top: 100%;
-  left: 40%;
+  left: 50%;
   transform: translateX(-50%);
-  background-color: #fff;
+  background-color: #85c1e9;
+  opacity: 70%;
+  color: black;
   border: 1px solid #ccc;
   padding: 5px;
+  border-radius: 10px;
 }
 
 .stat-card.mood:hover .dialog-tag {
@@ -239,8 +242,12 @@ tbody tr:hover {
   transform: translateY(-5px); 
 }
 .user-banner {
-  background-color: #9ca4e7; /* Your primary color */
-  color: white;
+  background-image: url('./components/images/bubbles.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  color: black;
   padding: 20px;
   text-align: center;
   border-radius: 8px;

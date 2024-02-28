@@ -133,6 +133,7 @@ export default function UserPage() {
         <h2>Mood</h2>
         <div className="stat-circle">
           <span>{userAvgs.mood }</span>
+          <div class="dialog-tag">Hellooo!! Nice to meet you</div>
         </div>
     </div>
     <div className="stat-card abdominal-pain">
@@ -189,7 +190,7 @@ export default function UserPage() {
             <td>{entry.nausea}</td>
             <td>{entry.fatigue}</td>
             <td>{entry.weeks}</td>
-          
+
             <td>
 
               {(index === 0) ? (

@@ -198,9 +198,20 @@ tbody tr:hover {
   border: 2px solid #85c1e9; 
   background-color: #ebf5fb; 
 }
-.stat-card.mood:hover {
-  border: 2px solid #85c1e9; 
-  background-color: black; 
+
+.dialog-tag {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 40%;
+  transform: translateX(-50%);
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 5px;
+}
+
+.stat-card.mood:hover .dialog-tag {
+  display: block;
 }
 
 .stat-card.abdominal-pain {

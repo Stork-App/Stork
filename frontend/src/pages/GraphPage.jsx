@@ -21,6 +21,7 @@ export default function GraphPage() {
 
   return <>
     <h1 className="symptom-stats">Your Symptom Stats Graph!</h1>
+    <p>Here you can see a graph for each symptom you have logged and the average values for each week of your pregnancy.</p>
     <br></br>
     <div className="graph-comp">
       <Graph userLogs = {userLogs} />

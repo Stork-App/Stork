@@ -67,6 +67,18 @@ form {
   color: gray;
 
 }
+.total-logs-title {
+  color: rgb(116, 111, 111);
+  /*background-color:rgb(162, 76, 232);*/
+  color: white;
+  width: 40%;
+  border-radius: 12px;
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom: 3%;
+  color: gray;
+
+}
 .average-container{
   display: flex;
   align-items: center;
@@ -74,6 +86,11 @@ form {
 
 }
 
+.average-description{
+  text-align: center;
+  margin-left: 10%;
+  margin-right: 10%;
+}
 .log-form-container {
   position: fixed;
   top: 50%; 
@@ -136,7 +153,6 @@ tbody tr:hover {
   display: flex;
   justify-content: space-around; 
   padding: 20px;
-  margin-bottom: 88px;
 }
 
 .stat-card {
@@ -148,6 +164,10 @@ tbody tr:hover {
   width: 140px; 
   margin: 10px;
   transition: transform 0.3s ease;
+}
+
+.logs-table-desc{
+  text-align: center;
 }
 
 .stat-card h2 {
@@ -178,6 +198,10 @@ tbody tr:hover {
   border: 2px solid #85c1e9; 
   background-color: #ebf5fb; 
 }
+.stat-card.mood:hover {
+  border: 2px solid #85c1e9; 
+  background-color: black; 
+}
 
 .stat-card.abdominal-pain {
   border: 2px solid #82e0aa;
@@ -199,7 +223,6 @@ tbody tr:hover {
   border: 2px solid #9b59b6; /* Soft purple */
   background-color: #f5eef8; /* Very light purple background */
   background-color: #9ca4e7; /* Your primary color */
-
 }
 .stat-card:hover {
   transform: translateY(-5px); 

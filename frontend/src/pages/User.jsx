@@ -189,7 +189,7 @@ export default function UserPage() {
             <td>{entry.nausea}</td>
             <td>{entry.fatigue}</td>
             <td>{entry.weeks}</td>
-          
+
             <td>
 
               {(index === 0) ? (
